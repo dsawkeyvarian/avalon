@@ -11,13 +11,15 @@ enum class TreatmentHeadType
   TRUEBEAM,
   HALCYON,
   AVALON,
+  AVALON_ELECTRON,
   NUM_TREATMENT_HEAD_TYPES
 };
 static const char* th_type_names[] = {
   "no_head",
   "truebeam",
   "halcyon",
-  "avalon"
+  "avalon",
+  "avalon_electron"
 };
 static_assert(static_cast<size_t>(TreatmentHeadType::NUM_TREATMENT_HEAD_TYPES) == SIZEOFARRAY(th_type_names));
 
@@ -47,6 +49,7 @@ enum class EnergyMode {
   X10,
   X10_FFF,
   X15,
+  E15,
   NUM_ENERGY_MODES
 };
 static const char* energy_mode_names[] = {
@@ -57,7 +60,8 @@ static const char* energy_mode_names[] = {
   "08X-FFF",
   "10X",
   "10X-FFF",
-  "15X"
+  "15X",
+  "15E"
 };
 static_assert(static_cast<size_t>(EnergyMode::NUM_ENERGY_MODES) == SIZEOFARRAY(energy_mode_names));
 
@@ -74,7 +78,7 @@ struct ValidCombination {
 };
 
 
-static const std::array< ValidCombination, 4> validCombinations = {
+static const std::array< ValidCombination, 5> validCombinations = {
    ValidCombination{TreatmentHeadType::TRUEBEAM, 
     {MLCType::NONE, MLCType::MILLENNIUM120, MLCType::HD}, 
     {EnergyMode::X06, EnergyMode::X06_FFF}},
@@ -84,6 +88,9 @@ static const std::array< ValidCombination, 4> validCombinations = {
 
    ValidCombination{TreatmentHeadType::AVALON,
     {MLCType::AVALON}, {EnergyMode::X06, EnergyMode::X06_FFF,EnergyMode::X10_FFF,EnergyMode::X10}},
+
+   ValidCombination{TreatmentHeadType::AVALON_ELECTRON,
+    {MLCType::AVALON}, {EnergyMode::E15}},
 
    ValidCombination{TreatmentHeadType::NOHEAD,
     {MLCType::NONE}, {EnergyMode::NONE}}
@@ -117,6 +124,13 @@ namespace halcyon
 namespace avalon
 {
   static const std::array<EnergyMode, 4> energy_modes = {EnergyMode::X06, EnergyMode::X06_FFF,EnergyMode::X10, EnergyMode::X10_FFF};
+  const size_t num_proximal_leaves_in_bank = 47;
+  const size_t num_distal_leaves_in_bank = 46;
+}
+
+namespace avalon_electron
+{
+  static const std::array<EnergyMode, 1> energy_modes = {EnergyMode::E15};
   const size_t num_proximal_leaves_in_bank = 47;
   const size_t num_distal_leaves_in_bank = 46;
 }

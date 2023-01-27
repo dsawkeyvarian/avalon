@@ -201,6 +201,14 @@ std::vector<Plan::THDynamicState> Plan::parseStates(const json& plan, TreatmentH
         parseLeafPositions(sp.at("mlc_distal_leaf_positions"))
       };
     }
+    else if(th_type == TreatmentHeadType::AVALON_ELECTRON)
+    {
+      states[i] = THDynamicStateDualLayerMLC{
+        parseRotations(sp.at("angles")),
+        parseLeafPositions(sp.at("mlc_proximal_leaf_positions")),
+        parseLeafPositions(sp.at("mlc_distal_leaf_positions"))
+      };
+    }
     else if(th_type == TreatmentHeadType::NOHEAD) {
       auto rotations = TreatmentHeadRotations{0.0, 0.0};
       if(sp.contains("angles"))
@@ -208,7 +216,7 @@ std::vector<Plan::THDynamicState> Plan::parseStates(const json& plan, TreatmentH
       states[i] = rotations;
     }
     else {
-      static_assert(static_cast<int>(TreatmentHeadType::NUM_TREATMENT_HEAD_TYPES) == 4);
+      static_assert(static_cast<int>(TreatmentHeadType::NUM_TREATMENT_HEAD_TYPES) == 5);
     }
   }
   return states;
@@ -273,6 +281,22 @@ bool Plan::validateStates(
       }
     }
   }
+  else if(th_type == TreatmentHeadType::AVALON_ELECTRON) {
+    for(size_t i = 0; i < num_pts; ++i) {
+      const auto& pt = std::get<THDynamicStateDualLayerMLC>(states[i]);
+      bool leaf_number_ok = true;
+      leaf_number_ok &= pt.distal_leaf_positions.bank_X1.size() == avalon::num_distal_leaves_in_bank;
+      leaf_number_ok &= pt.distal_leaf_positions.bank_X2.size() == avalon::num_distal_leaves_in_bank;
+      leaf_number_ok &= pt.proximal_leaf_positions.bank_X1.size() == avalon::num_proximal_leaves_in_bank;
+      leaf_number_ok &= pt.proximal_leaf_positions.bank_X2.size() == avalon::num_proximal_leaves_in_bank;
+      if(!leaf_number_ok) {
+          log.error(fmt::format("Wrong number of leaves at simulation point {}", i));
+          ok = false;
+      }
+    }
+  }
+
+
   else if(th_type == TreatmentHeadType::NOHEAD) {
     for(size_t i = 0; i < num_pts; ++i) {
       if(!std::holds_alternative<TreatmentHeadRotations>(states[i]))
@@ -280,7 +304,7 @@ bool Plan::validateStates(
     }
   }
   else {
-    static_assert(static_cast<int>(TreatmentHeadType::NUM_TREATMENT_HEAD_TYPES) == 4);
+    static_assert(static_cast<int>(TreatmentHeadType::NUM_TREATMENT_HEAD_TYPES) == 5);
   }
   return ok;
 }
@@ -348,6 +372,17 @@ void Plan::interpolateControlPoint(
     interpolate(t, sp.proximal_leaf_positions, p0.proximal_leaf_positions, p1.proximal_leaf_positions);
     interpolate(t, sp.distal_leaf_positions, p0.distal_leaf_positions, p1.distal_leaf_positions);
   }
+  else if(th_type == TreatmentHeadType::AVALON_ELECTRON)
+  {
+    const auto& p0 = std::get<THDynamicStateDualLayerMLC>(cp0);
+    const auto& p1 = std::get<THDynamicStateDualLayerMLC>(cp1);
+    _sp = THDynamicStateDualLayerMLC{};
+    auto& sp = std::get<THDynamicStateDualLayerMLC>(_sp);
+    interpolate(t, sp.th_rotations, p0.th_rotations, p1.th_rotations);
+    interpolate(t, sp.proximal_leaf_positions, p0.proximal_leaf_positions, p1.proximal_leaf_positions);
+    interpolate(t, sp.distal_leaf_positions, p0.distal_leaf_positions, p1.distal_leaf_positions);
+  }
+
   else if(th_type == TreatmentHeadType::NOHEAD) {
     const auto& p0 = std::get<TreatmentHeadRotations>(cp0);
     const auto& p1 = std::get<TreatmentHeadRotations>(cp1);

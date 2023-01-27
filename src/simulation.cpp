@@ -122,6 +122,7 @@ protected:
 		}
 		if (m_info.m_kill_particles)
 			track->SetTrackStatus(G4TrackStatus::fStopAndKill);
+
 		return true;
 	}
 
@@ -142,6 +143,12 @@ protected:
 		data.mom_x = static_cast<float>(momentum_direction.x());
 		data.mom_y = static_cast<float>(momentum_direction.y());
 		data.weight = weight;
+
+    if (fabs(position.x()) > 150.*mm && fabs(position.y()) > 150.*mm) {
+      G4cout << "Keeping!" << G4endl;
+      G4EventManager::GetEventManager()->KeepTheCurrentEvent();
+    }
+
 	}
 
 	void WriteTrackInfoToBuffer(LinacTrackInformation* info)

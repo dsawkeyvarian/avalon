@@ -83,3 +83,4 @@ std::unique_ptr<LinacSource> getTrueBeam6MeVSource();
 std::unique_ptr<LinacSource> getHalcyonSource();
 std::unique_ptr<LinacSource> getAvalon10XFFFSource();
 std::unique_ptr<LinacSource> getAvalon10XSource();
+std::unique_ptr<LinacSource> getAvalon15ESource();

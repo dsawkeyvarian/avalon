@@ -145,6 +145,46 @@ namespace avalon {
   };
 }
 
+namespace avalon_electron {
+  struct MLCLeafVolumesProximal {
+    std::vector<G4VPhysicalVolume*> bank_X1;
+    std::vector<G4VPhysicalVolume*> bank_X2;
+  };
+  struct MLCLeafVolumesDistal {
+    std::vector<G4VPhysicalVolume*> bank_X1;
+    std::vector<G4VPhysicalVolume*> bank_X2;
+  };
+  class TreatmentHeadDetector : public LinacDetector {
+  public:
+    TreatmentHeadDetector(EnergyMode energy_mode,const std::string& sd_monitor_chamber_name, 
+      const fs::path& gdml_path, const fs::path& stl_path);
+    G4VPhysicalVolume* Construct() override;
+    void ConstructSDandField() override;
+
+    void setState(const Plan& plan, size_t pt_idx) override;
+    const std::unordered_map<int, TraversedGeometry>& getTraversedGeometryMapping() const override {
+      return m_id_to_traversed;
+    }
+    std::optional<std::string> getMonitorChamberName() const override {
+      return m_sd_monitor_chamber_name;
+    }
+    //virtual const G4RotationMatrix* getGantryRotation() { return m_gantry->GetRotation(); }
+    //virtual const G4RotationMatrix* getCollimatorRotation() {  return m_collimator->GetRotation(); };
+    
+    EnergyMode m_energy_mode;
+    fs::path m_gdml_path;
+    fs::path m_stl_path;
+    std::string m_sd_monitor_chamber_name;
+    std::unordered_map<int, TraversedGeometry> m_id_to_traversed;
+    G4VPhysicalVolume* m_gantry;
+    G4VPhysicalVolume* m_collimator;
+    G4LogicalVolume* m_monitor_chamber;
+    MLCLeafVolumesProximal m_mlc_proximal_volumes;
+    MLCLeafVolumesDistal m_mlc_distal_volumes;
+  };
+}
+
+
 namespace nohead {
   class TreatmentHeadDetector : public LinacDetector {
   public:

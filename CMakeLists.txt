@@ -33,7 +33,9 @@ target_sources(linac_core
     src/nohead.cpp
     src/math_utils.cpp
     src/stl.cpp
-	src/avalon.cpp)
+	src/avalon.cpp
+  src/avalon_electron.cpp
+  )
 target_link_libraries(linac_core 
   PUBLIC
     Geant4

@@ -96,6 +96,9 @@ TreatmentHeadAndSourceInfo parseTreatmentHeadAndSource(const json& obj) {
     if(th.th_config.th_type == TreatmentHeadType::AVALON) {
       th.th_config.mlc_type = MLCType::AVALON;
     }
+    if(th.th_config.th_type == TreatmentHeadType::AVALON_ELECTRON) {
+      th.th_config.mlc_type = MLCType::AVALON;
+    }
     if(th.th_config.th_type == TreatmentHeadType::NOHEAD) {
       th.th_config.mlc_type = MLCType::NONE;
       th.th_config.energy_mode = EnergyMode::NONE;
@@ -526,6 +529,16 @@ int doLinacSimulation(
       "sd_monitor_chamber", gdml_path, stl_path
     );
   }
+
+  else if(th_source_info.th_config.th_type == TreatmentHeadType::AVALON_ELECTRON) {
+    if(th_source_info.th_config.energy_mode == EnergyMode::E15)
+        linac_source = getAvalon15ESource();
+    treatment_head = std::make_unique<avalon_electron::TreatmentHeadDetector>(th_source_info.th_config.energy_mode,
+    //treatment_head = std::make_unique<avalon::TreatmentHeadDetector>(th_source_info.th_config.energy_mode,
+      "sd_monitor_chamber", gdml_path, stl_path
+    );
+  }
+
   else if(th_source_info.th_config.th_type == TreatmentHeadType::NOHEAD) {
     treatment_head = std::make_unique<nohead::TreatmentHeadDetector>(
       th_source_info.background_material.value()
