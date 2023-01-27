@@ -332,7 +332,11 @@ enum class TraversedGeometry : uint32_t {
   COLL_PLATE = 12,
   MLC = 13,
   SOURCE = 14,
-  OTHER = 15,
+  SCRAPER1 = 15,
+  SCRAPER1_SUPPORT = 16,
+  SCRAPER2 = 17,
+  SCRAPER3 = 18,
+  OTHER = 19,
   NUM_TRAVERSED,
   NONE
 };
@@ -353,6 +357,10 @@ static const char* g_traversed_geometry_names[] = {
   "COLL_PLATE",
   "MLC",
   "SOURCE",
+  "SCRAPER1",
+  "SCRAPER1_SUPPORT",
+  "SCRAPER2",
+  "SCRAPER3",
   "OTHER"
 };
 

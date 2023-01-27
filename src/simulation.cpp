@@ -144,10 +144,10 @@ protected:
 		data.mom_y = static_cast<float>(momentum_direction.y());
 		data.weight = weight;
 
-    if (fabs(position.x()) > 150.*mm && fabs(position.y()) > 150.*mm) {
-      G4cout << "Keeping!" << G4endl;
-      G4EventManager::GetEventManager()->KeepTheCurrentEvent();
-    }
+    //if (fabs(position.x()) > 150.*mm && fabs(position.y()) > 150.*mm) {
+    //  G4cout << "Keeping!" << G4endl;
+    //  G4EventManager::GetEventManager()->KeepTheCurrentEvent();
+    //}
 
 	}
 
