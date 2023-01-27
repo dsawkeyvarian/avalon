@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--   GDML materials definition from the Fastrad file : "ShieldingCollimator.ray"
+       Processed the 20/03/2009 at 12h59 by the GDML module of Fastrad 3.0 -->
+
+<materials>
+	<element name="videRef" formula="VACUUM" Z="1">
+		<atom value="1"/>
+	</element>
+	<element name="lead" formula="Pb" Z="82">
+		<atom value="207.20"/>
+	</element>
+	<element name="antimony" formula="Sb" Z="51">
+		<atom value="121.75"/>
+	</element>	
+	
+	<element name="carbon" formula="C" Z="6">
+		<atom value="12.0107"/>
+	</element>
+	<element name="nitrogen" formula="N" Z="7">
+		<atom value="14.0070"/>
+	</element>
+	<element name="oxygen" formula="O" Z="8">
+		<atom value="15.9994"/>
+	</element>
+	<element name="argon" formula="Ar" Z="18">
+		<atom value="39.9480"/>
+	</element>
+	
+	
+	<material name="AIR" formula="AIR">
+		<D value ="0.0012" unit="g/cm3"/>
+		<fraction n="0.0001" ref="carbon"/>
+		<fraction n="0.7553" ref="nitrogen"/>
+		<fraction n="0.2318" ref="oxygen"/>
+		<fraction n="0.0128" ref="argon"/>
+	</material>	
+	
+	<material name="LEAD_Pb" formula="LEAD_Pb">
+		<D value ="11.3400" unit="g/cm3"/>
+		<fraction n="1.0000" ref="lead"/>
+	</material>
+	
+	<material name="LEAD_ANTIMONY" formula="LEAD_ANTIMONY">
+		<D value ="11.10" unit="g/cm3"/>
+		<fraction n="0.97" ref="lead"/>
+		<fraction n="0.03" ref="antimony"/>		
+	</material>
+	
+</materials>
+
+

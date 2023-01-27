@@ -1,0 +1,19 @@
+{
+    "physics_model": "QGSP_BIC_EMZ",
+    "biasing_mode": "none",
+	"treatment_head": {
+        "type": "avalon",
+		"energy_mode": "6X-FFF"
+    },
+	"track_particles": true,
+    "phase_space_recorders": [
+        {
+            "type": "plane",
+            "phsp_filename": "avalon_105x105mm_0mm.phsp",
+            "center_position": [0.0, 0.0, 0.0, "cm"],
+            "size": [100.0, 100.0, 0.01, "cm"],
+            "kill_particles": true,
+            "attach": "gantry"
+        }
+    ]
+}

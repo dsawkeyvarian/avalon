@@ -1,0 +1,38 @@
+(A) FieldSize:
+
+FS = 10.0 cm x 10.0 cm	
+
+(B) PhantomGeometry: 
+
+SPD  = 100.0 cm
+SDD  = 110.0 cm	
+Peff @  10.0 cm
+
+(C) Depth Dose Percentages: 
+
+OPEN06X = 66.3 %
+OPEN10X = 73.5 %
+OPEN15X = 76.8 %
+
+FFF06X = 63.4 %
+FFF10X = 71.0 %
+
+
+--------------
+(D) Dose Rule:
+
+With presciped field size 100 MUs beam on time
+shall in presciped geometry produse 1.0 Gy dose at Dmax. 
+
+(E) Absolute Dose Calibration
+
+From Dose Rule follows, that 100 MUs produces
+following doses in (A) + (B) geometry: 
+
+OPEN06X = 66.3 cGy
+OPEN10X = 73.5 cGy
+OPEN15X = 76.8 cGy
+
+FFF06X = 63.4 cGy
+FFF10X = 71.0 cGy
+ 

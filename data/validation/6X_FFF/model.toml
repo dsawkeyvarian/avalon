@@ -1,0 +1,42 @@
+[Simulation]
+num_threads = 30
+starting_seed = 650100
+physics_model = "QGSP_BIC_EMZ"
+gdml_folder = "D:\\tmp\\geant4_10_06_p02\\VL2_Jan2020\\gdml"
+source_type = "RandomSource" #PhaseSpaceSource
+biasing_mode = "full_phantom_directional" #"none"
+
+[RandomSource]
+num_particles = 550000
+energy = [6.5, "MeV"]
+energy_sigma = [0.056, "MeV"]
+spot_position = [0.0, 0.0, "mm"]
+spot_size = [0.6645, 0.7274, "mm"]
+angle = [0.0, 0.0, "deg"]
+angle_divergence =  [0.0573, 0.0573, "deg"]
+
+[TreatmentHead]
+target = "low_energy"
+flattening_filter = "open"
+jaw_x_position = [-3.0, 3.0, "cm"] 
+jaw_y_position = [-3.0, 3.0, "cm"]
+
+#optional
+[Phantom]
+center_position = [0.0, 0.0, -12.5, "cm"]
+size = [30.0, 30.0, 35.0, "cm"]
+
+#optional
+[DoseGrid]
+filename = "6X_6.0x6.0_SSD95cm_6500100.dose"
+center_position = [0.0, 0.0, -12.5, "cm"]
+size = [10.0, 10.0, 35.0, "cm"]
+num_voxels = [100, 10, 350]
+
+#optional
+[PhaseSpacePlane]
+phsp_filename = "6X_6.0x6.0_SSD95cm_phsp1cm_6500100.phsp"
+header_filename = "6X_6.0x6.0_SSD95cm_phsp1cm_6500100.header"
+center_position = [0.0, 0.0, 6.0, "cm"]
+size = [50.0, 50.0, 0.01, "cm"]
+kill_particles = false

@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+	<!ENTITY materials SYSTEM "BasePlate_01_materials.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/gdml.xsd">
+
+<define>
+	<constant name="HALFPI" value="pi/2."/>
+	<constant name="PI" value="1.*pi"/>
+	<constant name="TWOPI" value="2.*pi"/>
+	<position name="center"/>
+	<rotation name="identity"/>
+	<rotation name="aligneSurX" y="HALFPI" />
+	<rotation name="aligneSurY" x="HALFPI" />
+
+<!-- Vertex definition of the tesselated components Step 0 -->
+
+	<position name="v218014824_0" x="102.4972" y="-2.2183" z="-28.2775" unit="mm"/>
+	<position name="v218014824_1" x="102.4972" y="0.7517" z="-28.2702" unit="mm"/>
+	<position name="v218014824_2" x="102.4972" y="0.7646" z="-33.4702" unit="mm"/>
+	<position name="v218014824_3" x="102.4972" y="-2.2997" z="-33.4777" unit="mm"/>
+	<position name="v218014824_4" x="102.4972" y="-2.2973" z="-32.5237" unit="mm"/>
+	<position name="v218014824_5" x="102.4972" y="-0.8918" z="-32.5203" unit="mm"/>
+	<position name="v218014824_6" x="102.4972" y="-0.8983" z="-29.8743" unit="mm"/>
+	<position name="v218014824_7" x="102.4972" y="-2.2143" z="-29.8775" unit="mm"/>
+	<position name="v218014824_8" x="32.4972" y="-2.2183" z="-28.2775" unit="mm"/>
+	<position name="v218014824_9" x="32.4972" y="0.7517" z="-28.2702" unit="mm"/>
+	<position name="v218014824_10" x="32.4972" y="-2.2143" z="-29.8775" unit="mm"/>
+	<position name="v218014824_11" x="-99.4329" y="-2.2908" z="-29.8777" unit="mm"/>
+	<position name="v218014824_12" x="-99.4329" y="-0.8983" z="-29.8743" unit="mm"/>
+	<position name="v218014824_13" x="32.4972" y="-2.2908" z="-29.8777" unit="mm"/>
+	<position name="v218014824_14" x="-99.3759" y="0.7564" z="-30.1707" unit="mm"/>
+	<position name="v218014824_15" x="-99.8882" y="0.7497" z="-27.4702" unit="mm"/>
+	<position name="v218014824_16" x="-99.8882" y="2.2997" z="-27.4663" unit="mm"/>
+	<position name="v218014824_17" x="-100.0045" y="2.2982" z="-26.8534" unit="mm"/>
+	<position name="v218014824_18" x="-100.0045" y="-2.2833" z="-26.8647" unit="mm"/>
+	<position name="v218014824_19" x="-99.3759" y="-0.8976" z="-30.1748" unit="mm"/>
+	<position name="v218014824_20" x="-98.6775" y="0.7646" z="-33.4702" unit="mm"/>
+	<position name="v218014824_21" x="32.4972" y="0.6804" z="0.5337" unit="mm"/>
+	<position name="v218014824_22" x="2.4972" y="0.6804" z="0.5337" unit="mm"/>
+	<position name="v218014824_23" x="2.4972" y="0.6886" z="-2.7933" unit="mm"/>
+	<position name="v218014824_24" x="18.4972" y="0.6886" z="-2.7933" unit="mm"/>
+	<position name="v218014824_25" x="18.4972" y="0.6968" z="-6.0932" unit="mm"/>
+	<position name="v218014824_26" x="2.4972" y="0.6968" z="-6.0932" unit="mm"/>
+	<position name="v218014824_27" x="2.4972" y="0.7497" z="-27.4702" unit="mm"/>
+	<position name="v218014824_28" x="-98.6775" y="-0.8894" z="-33.4743" unit="mm"/>
+	<position name="v218014824_29" x="-93.5028" y="-0.8918" z="-32.5203" unit="mm"/>
+	<position name="v218014824_30" x="-93.5028" y="-0.8894" z="-33.4743" unit="mm"/>
+	<position name="v218014824_31" x="-93.5028" y="-2.2973" z="-32.5237" unit="mm"/>
+	<position name="v218014824_32" x="-93.5028" y="-2.2997" z="-33.4777" unit="mm"/>
+	<position name="v218014824_33" x="32.4972" y="-2.2143" z="1.0275" unit="mm"/>
+	<position name="v218014824_34" x="32.4972" y="-1.8143" z="1.0265" unit="mm"/>
+	<position name="v218014824_35" x="32.4972" y="-1.7339" z="33.4759" unit="mm"/>
+	<position name="v218014824_36" x="32.4972" y="-0.9799" z="33.4777" unit="mm"/>
+	<position name="v218014824_37" x="32.4972" y="-0.9829" z="32.2745" unit="mm"/>
+	<position name="v218014824_38" x="32.4972" y="0.2018" z="32.2716" unit="mm"/>
+	<position name="v218014824_39" x="32.4972" y="0.2804" z="0.5327" unit="mm"/>
+	<position name="v218014824_40" x="-100.5631" y="-2.2751" z="-23.5387" unit="mm"/>
+	<position name="v218014824_41" x="-101.0515" y="-2.2668" z="-20.2017" unit="mm"/>
+	<position name="v218014824_42" x="-101.4695" y="-2.2585" z="-16.8551" unit="mm"/>
+	<position name="v218014824_43" x="-101.8168" y="-2.2502" z="-13.5004" unit="mm"/>
+	<position name="v218014824_44" x="-102.0934" y="-2.2419" z="-10.1391" unit="mm"/>
+	<position name="v218014824_45" x="-102.2990" y="-2.2336" z="-6.7728" unit="mm"/>
+	<position name="v218014824_46" x="-102.4337" y="-2.2252" z="-3.4029" unit="mm"/>
+	<position name="v218014824_47" x="-102.4972" y="-2.2169" z="-0.0309" unit="mm"/>
+	<position name="v218014824_48" x="-102.4949" y="-2.2143" z="1.0275" unit="mm"/>
+	<position name="v218014824_49" x="18.4972" y="-2.2319" z="-6.1005" unit="mm"/>
+	<position name="v218014824_50" x="-87.1528" y="-2.2319" z="-6.1005" unit="mm"/>
+	<position name="v218014824_51" x="18.4972" y="-2.2237" z="-2.8005" unit="mm"/>
+	<position name="v218014824_52" x="-87.1528" y="-2.2237" z="-2.8005" unit="mm"/>
+	<position name="v218014824_53" x="-87.1528" y="2.2468" z="-6.0894" unit="mm"/>
+	<position name="v218014824_54" x="2.4972" y="2.2468" z="-6.0894" unit="mm"/>
+	<position name="v218014824_55" x="-87.1528" y="2.2386" z="-2.7894" unit="mm"/>
+	<position name="v218014824_56" x="2.4972" y="2.2386" z="-2.7894" unit="mm"/>
+	<position name="v218014824_57" x="2.4972" y="2.2997" z="-27.4663" unit="mm"/>
+	<position name="v218014824_58" x="2.4972" y="2.1585" z="29.5335" unit="mm"/>
+	<position name="v218014824_59" x="-99.9883" y="2.1585" z="29.5335" unit="mm"/>
+	<position name="v218014824_60" x="-100.4511" y="2.1652" z="26.8514" unit="mm"/>
+	<position name="v218014824_61" x="-100.9543" y="2.1734" z="23.5166" unit="mm"/>
+	<position name="v218014824_62" x="-101.3872" y="2.1817" z="20.1719" unit="mm"/>
+	<position name="v218014824_63" x="-101.7494" y="2.1900" z="16.8189" unit="mm"/>
+	<position name="v218014824_64" x="-102.0409" y="2.1984" z="13.4589" unit="mm"/>
+	<position name="v218014824_65" x="-102.2615" y="2.2067" z="10.0936" unit="mm"/>
+	<position name="v218014824_66" x="-102.4112" y="2.2150" z="6.7243" unit="mm"/>
+	<position name="v218014824_67" x="-102.4897" y="2.2234" z="3.3527" unit="mm"/>
+	<position name="v218014824_68" x="-102.4972" y="2.2317" z="-0.0199" unit="mm"/>
+	<position name="v218014824_69" x="-102.4337" y="2.2401" z="-3.3918" unit="mm"/>
+	<position name="v218014824_70" x="-102.2990" y="2.2484" z="-6.7617" unit="mm"/>
+	<position name="v218014824_71" x="-102.0934" y="2.2568" z="-10.1280" unit="mm"/>
+	<position name="v218014824_72" x="-101.8168" y="2.2651" z="-13.4892" unit="mm"/>
+	<position name="v218014824_73" x="-101.4695" y="2.2734" z="-16.8438" unit="mm"/>
+	<position name="v218014824_74" x="-101.0515" y="2.2817" z="-20.1904" unit="mm"/>
+	<position name="v218014824_75" x="-100.5631" y="2.2900" z="-23.5274" unit="mm"/>
+	<position name="v218014824_76" x="2.4972" y="0.2804" z="0.5327" unit="mm"/>
+	<position name="v218014824_77" x="2.4972" y="0.2085" z="29.5287" unit="mm"/>
+	<position name="v218014824_78" x="-99.9883" y="0.2085" z="29.5287" unit="mm"/>
+	<position name="v218014824_79" x="-99.8776" y="0.2070" z="30.1700" unit="mm"/>
+	<position name="v218014824_80" x="-99.4692" y="0.2018" z="32.2716" unit="mm"/>
+	<position name="v218014824_81" x="-100.4511" y="-1.7503" z="26.8417" unit="mm"/>
+	<position name="v218014824_82" x="-99.8776" y="-1.7421" z="30.1652" unit="mm"/>
+	<position name="v218014824_83" x="-100.9543" y="-1.7586" z="23.5069" unit="mm"/>
+	<position name="v218014824_84" x="-101.3872" y="-1.7669" z="20.1621" unit="mm"/>
+	<position name="v218014824_85" x="-101.7494" y="-1.7752" z="16.8091" unit="mm"/>
+	<position name="v218014824_86" x="-102.0409" y="-1.7835" z="13.4491" unit="mm"/>
+	<position name="v218014824_87" x="-102.2615" y="-1.7918" z="10.0837" unit="mm"/>
+	<position name="v218014824_88" x="-102.4112" y="-1.8002" z="6.7144" unit="mm"/>
+	<position name="v218014824_89" x="-102.4897" y="-1.8085" z="3.3427" unit="mm"/>
+	<position name="v218014824_90" x="-102.4949" y="-1.8143" z="1.0265" unit="mm"/>
+	<position name="v218014824_91" x="-99.2343" y="-1.7339" z="33.4759" unit="mm"/>
+	<position name="v218014824_92" x="-99.4681" y="-0.9829" z="32.2745" unit="mm"/>
+	<position name="v218014824_93" x="-99.2343" y="-0.9799" z="33.4777" unit="mm"/>
+	<position name="v218014824_94" x="102.4972" y="-0.7611" z="-30.8740" unit="mm"/>
+	<position name="v218014824_95" x="1.5322" y="-1.5946" z="-29.8760" unit="mm"/>
+	<position name="v218014824_96" x="-99.6902" y="0.0041" z="-28.5158" unit="mm"/>
+	<position name="v218014824_97" x="1.5322" y="-0.8939" z="-31.6743" unit="mm"/>
+	<position name="v218014824_98" x="-93.5028" y="-1.5957" z="-32.9990" unit="mm"/>
+	<position name="v218014824_99" x="1.9098" y="-0.7676" z="-33.4739" unit="mm"/>
+	<position name="v218014824_100" x="32.4972" y="-0.8460" z="1.8020" unit="mm"/>
+	<position name="v218014824_101" x="-35.0000" y="-2.2525" z="-14.4251" unit="mm"/>
+	<position name="v218014824_102" x="-34.3278" y="0.0074" z="-6.0949" unit="mm"/>
+	<position name="v218014824_103" x="-87.1528" y="0.0033" z="-4.4450" unit="mm"/>
+	<position name="v218014824_104" x="-34.3278" y="0.0074" z="-2.7949" unit="mm"/>
+	<position name="v218014824_105" x="-50.0000" y="2.2291" z="1.0336" unit="mm"/>
+	<position name="v218014824_106" x="2.4972" y="1.2236" z="13.3696" unit="mm"/>
+	<position name="v218014824_107" x="-100.1643" y="0.2033" z="28.5083" unit="mm"/>
+	<position name="v218014824_108" x="-100.7027" y="0.2033" z="25.1791" unit="mm"/>
+	<position name="v218014824_109" x="-101.1707" y="0.2033" z="21.8394" unit="mm"/>
+	<position name="v218014824_110" x="-101.5683" y="0.2033" z="18.4905" unit="mm"/>
+	<position name="v218014824_111" x="-101.8952" y="0.2033" z="15.1340" unit="mm"/>
+	<position name="v218014824_112" x="-102.1512" y="0.2033" z="11.7713" unit="mm"/>
+	<position name="v218014824_113" x="-102.3363" y="0.2033" z="8.4040" unit="mm"/>
+	<position name="v218014824_114" x="-102.4504" y="0.2033" z="5.0335" unit="mm"/>
+	<position name="v218014824_115" x="-102.4935" y="0.0033" z="1.6609" unit="mm"/>
+	<position name="v218014824_116" x="-102.4654" y="0.0033" z="-1.7114" unit="mm"/>
+	<position name="v218014824_117" x="-102.3663" y="0.0033" z="-5.0823" unit="mm"/>
+	<position name="v218014824_118" x="-102.1962" y="0.0033" z="-8.4504" unit="mm"/>
+	<position name="v218014824_119" x="-101.9551" y="0.0033" z="-11.8142" unit="mm"/>
+	<position name="v218014824_120" x="-101.6432" y="0.0033" z="-15.1721" unit="mm"/>
+	<position name="v218014824_121" x="-101.2605" y="0.0033" z="-18.5227" unit="mm"/>
+	<position name="v218014824_122" x="-100.8073" y="0.0033" z="-21.8645" unit="mm"/>
+	<position name="v218014824_123" x="-100.2838" y="0.0033" z="-25.1961" unit="mm"/>
+	<position name="v218014824_124" x="-34.9988" y="-1.7741" z="17.2512" unit="mm"/>
+	<position name="v218014824_125" x="-99.5560" y="-0.7717" z="31.8229" unit="mm"/>
+	<position name="v218014824_126" x="-33.4860" y="-0.3906" z="32.2730" unit="mm"/>
+	<position name="v218014824_127" x="-33.4854" y="-0.9814" z="32.8761" unit="mm"/>
+	<position name="v218014824_128" x="18.4972" y="-0.7717" z="-4.4469" unit="mm"/>
+</define>
+
+<!-- Materials definition CallBack -->
+
+&materials;
+
+<solids>
+	<sphere name="WorldSphereRef" rmin="0." rmax="207.9515" startphi="0.0000" deltaphi="6.2832" starttheta="0.0000" deltatheta="3.1416"/>
+	<tessellated name="Outboard60_Solid">
+	<!-- Face 0 -->
+		<triangular vertex1="v218014824_0" vertex2="v218014824_7" vertex3="v218014824_6" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_4" vertex2="v218014824_3" vertex3="v218014824_5" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_5" vertex2="v218014824_2" vertex3="v218014824_94" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_2" vertex2="v218014824_5" vertex3="v218014824_3" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_6" vertex2="v218014824_94" vertex3="v218014824_1" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_1" vertex2="v218014824_94" vertex3="v218014824_2" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_6" vertex2="v218014824_1" vertex3="v218014824_0" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_6" vertex2="v218014824_5" vertex3="v218014824_94" type="ABSOLUTE"/>
+	<!-- Face 1 -->
+		<triangular vertex1="v218014824_8" vertex2="v218014824_0" vertex3="v218014824_1" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_1" vertex2="v218014824_9" vertex3="v218014824_8" type="ABSOLUTE"/>
+	<!-- Face 2 -->
+		<triangular vertex1="v218014824_10" vertex2="v218014824_7" vertex3="v218014824_0" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_0" vertex2="v218014824_8" vertex3="v218014824_10" type="ABSOLUTE"/>
+	<!-- Face 3 -->
+		<triangular vertex1="v218014824_13" vertex2="v218014824_95" vertex3="v218014824_10" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_95" vertex2="v218014824_13" vertex3="v218014824_11" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_95" vertex2="v218014824_12" vertex3="v218014824_6" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_12" vertex2="v218014824_95" vertex3="v218014824_11" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_7" vertex2="v218014824_10" vertex3="v218014824_6" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_6" vertex2="v218014824_10" vertex3="v218014824_95" type="ABSOLUTE"/>
+	<!-- Face 4 -->
+		<triangular vertex1="v218014824_19" vertex2="v218014824_12" vertex3="v218014824_14" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_96" vertex2="v218014824_14" vertex3="v218014824_12" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_11" vertex2="v218014824_96" vertex3="v218014824_12" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_15" vertex2="v218014824_17" vertex3="v218014824_16" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_18" vertex2="v218014824_15" vertex3="v218014824_96" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_15" vertex2="v218014824_14" vertex3="v218014824_96" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_17" vertex2="v218014824_15" vertex3="v218014824_18" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_11" vertex2="v218014824_18" vertex3="v218014824_96" type="ABSOLUTE"/>
+	<!-- Face 5 -->
+		<triangular vertex1="v218014824_27" vertex2="v218014824_9" vertex3="v218014824_20" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_14" vertex2="v218014824_27" vertex3="v218014824_20" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_2" vertex2="v218014824_9" vertex3="v218014824_1" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_9" vertex2="v218014824_2" vertex3="v218014824_20" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_27" vertex2="v218014824_14" vertex3="v218014824_15" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_27" vertex2="v218014824_26" vertex3="v218014824_25" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_25" vertex2="v218014824_24" vertex3="v218014824_21" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_22" vertex2="v218014824_21" vertex3="v218014824_24" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_23" vertex2="v218014824_22" vertex3="v218014824_24" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_21" vertex2="v218014824_9" vertex3="v218014824_25" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_25" vertex2="v218014824_9" vertex3="v218014824_27" type="ABSOLUTE"/>
+	<!-- Face 6 -->
+		<triangular vertex1="v218014824_19" vertex2="v218014824_20" vertex3="v218014824_28" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_20" vertex2="v218014824_19" vertex3="v218014824_14" type="ABSOLUTE"/>
+	<!-- Face 7 -->
+		<triangular vertex1="v218014824_97" vertex2="v218014824_12" vertex3="v218014824_29" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_6" vertex2="v218014824_97" vertex3="v218014824_5" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_97" vertex2="v218014824_6" vertex3="v218014824_12" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_12" vertex2="v218014824_19" vertex3="v218014824_29" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_29" vertex2="v218014824_28" vertex3="v218014824_30" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_28" vertex2="v218014824_29" vertex3="v218014824_19" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_97" vertex2="v218014824_29" vertex3="v218014824_5" type="ABSOLUTE"/>
+	<!-- Face 8 -->
+		<triangular vertex1="v218014824_5" vertex2="v218014824_29" vertex3="v218014824_31" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_31" vertex2="v218014824_4" vertex3="v218014824_5" type="ABSOLUTE"/>
+	<!-- Face 9 -->
+		<triangular vertex1="v218014824_98" vertex2="v218014824_31" vertex3="v218014824_29" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_30" vertex2="v218014824_32" vertex3="v218014824_98" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_31" vertex2="v218014824_98" vertex3="v218014824_32" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_29" vertex2="v218014824_30" vertex3="v218014824_98" type="ABSOLUTE"/>
+	<!-- Face 10 -->
+		<triangular vertex1="v218014824_4" vertex2="v218014824_31" vertex3="v218014824_32" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_32" vertex2="v218014824_3" vertex3="v218014824_4" type="ABSOLUTE"/>
+	<!-- Face 11 -->
+		<triangular vertex1="v218014824_3" vertex2="v218014824_32" vertex3="v218014824_99" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_30" vertex2="v218014824_20" vertex3="v218014824_99" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_20" vertex2="v218014824_30" vertex3="v218014824_28" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_99" vertex2="v218014824_2" vertex3="v218014824_3" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_2" vertex2="v218014824_99" vertex3="v218014824_20" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_30" vertex2="v218014824_99" vertex3="v218014824_32" type="ABSOLUTE"/>
+	<!-- Face 12 -->
+		<triangular vertex1="v218014824_10" vertex2="v218014824_8" vertex3="v218014824_13" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_33" vertex2="v218014824_13" vertex3="v218014824_8" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_21" vertex2="v218014824_39" vertex3="v218014824_9" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_8" vertex2="v218014824_9" vertex3="v218014824_39" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_38" vertex2="v218014824_100" vertex3="v218014824_39" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_39" vertex2="v218014824_33" vertex3="v218014824_8" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_39" vertex2="v218014824_34" vertex3="v218014824_33" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_37" vertex2="v218014824_35" vertex3="v218014824_34" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_37" vertex2="v218014824_100" vertex3="v218014824_38" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_35" vertex2="v218014824_37" vertex3="v218014824_36" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_100" vertex2="v218014824_37" vertex3="v218014824_34" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_39" vertex2="v218014824_100" vertex3="v218014824_34" type="ABSOLUTE"/>
+	<!-- Face 13 -->
+		<triangular vertex1="v218014824_52" vertex2="v218014824_48" vertex3="v218014824_47" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_52" vertex2="v218014824_47" vertex3="v218014824_46" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_46" vertex3="v218014824_45" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_33" vertex2="v218014824_52" vertex3="v218014824_51" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_52" vertex2="v218014824_33" vertex3="v218014824_48" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_101" vertex3="v218014824_49" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_51" vertex2="v218014824_49" vertex3="v218014824_33" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_52" vertex2="v218014824_46" vertex3="v218014824_50" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_33" vertex2="v218014824_49" vertex3="v218014824_13" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_45" vertex3="v218014824_44" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_43" vertex2="v218014824_42" vertex3="v218014824_50" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_41" vertex2="v218014824_50" vertex3="v218014824_42" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_41" vertex3="v218014824_40" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_18" vertex2="v218014824_11" vertex3="v218014824_50" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_40" vertex3="v218014824_18" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_11" vertex2="v218014824_13" vertex3="v218014824_101" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_101" vertex2="v218014824_50" vertex3="v218014824_11" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_101" vertex2="v218014824_13" vertex3="v218014824_49" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_43" vertex2="v218014824_50" vertex3="v218014824_44" type="ABSOLUTE"/>
+	<!-- Face 14 -->
+		<triangular vertex1="v218014824_25" vertex2="v218014824_26" vertex3="v218014824_49" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_102" vertex2="v218014824_49" vertex3="v218014824_26" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_50" vertex3="v218014824_102" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_49" vertex2="v218014824_102" vertex3="v218014824_50" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_102" vertex2="v218014824_54" vertex3="v218014824_53" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_26" vertex2="v218014824_54" vertex3="v218014824_102" type="ABSOLUTE"/>
+	<!-- Face 15 -->
+		<triangular vertex1="v218014824_103" vertex2="v218014824_50" vertex3="v218014824_53" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_52" vertex3="v218014824_103" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_50" vertex2="v218014824_103" vertex3="v218014824_52" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_55" vertex3="v218014824_103" type="ABSOLUTE"/>
+	<!-- Face 16 -->
+		<triangular vertex1="v218014824_55" vertex2="v218014824_104" vertex3="v218014824_52" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_51" vertex2="v218014824_52" vertex3="v218014824_104" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_56" vertex2="v218014824_104" vertex3="v218014824_55" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_24" vertex2="v218014824_51" vertex3="v218014824_23" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_104" vertex2="v218014824_23" vertex3="v218014824_51" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_104" vertex2="v218014824_56" vertex3="v218014824_23" type="ABSOLUTE"/>
+	<!-- Face 17 -->
+		<triangular vertex1="v218014824_66" vertex2="v218014824_55" vertex3="v218014824_67" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_65" vertex2="v218014824_55" vertex3="v218014824_66" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_64" vertex3="v218014824_63" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_68" vertex3="v218014824_67" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_64" vertex2="v218014824_55" vertex3="v218014824_65" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_70" vertex2="v218014824_53" vertex3="v218014824_71" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_69" vertex2="v218014824_53" vertex3="v218014824_70" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_73" vertex2="v218014824_72" vertex3="v218014824_53" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_74" vertex3="v218014824_73" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_69" vertex3="v218014824_68" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_72" vertex3="v218014824_71" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_63" vertex3="v218014824_62" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_61" vertex3="v218014824_60" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_105" vertex2="v218014824_60" vertex3="v218014824_59" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_60" vertex2="v218014824_105" vertex3="v218014824_55" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_105" vertex2="v218014824_59" vertex3="v218014824_58" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_105" vertex2="v218014824_58" vertex3="v218014824_56" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_105" vertex2="v218014824_56" vertex3="v218014824_55" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_69" vertex3="v218014824_55" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_17" vertex2="v218014824_53" vertex3="v218014824_16" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_17" vertex3="v218014824_75" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_57" vertex2="v218014824_53" vertex3="v218014824_54" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_53" vertex2="v218014824_57" vertex3="v218014824_16" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_74" vertex2="v218014824_53" vertex3="v218014824_75" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_55" vertex2="v218014824_62" vertex3="v218014824_61" type="ABSOLUTE"/>
+	<!-- Face 18 -->
+		<triangular vertex1="v218014824_57" vertex2="v218014824_27" vertex3="v218014824_15" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_15" vertex2="v218014824_16" vertex3="v218014824_57" type="ABSOLUTE"/>
+	<!-- Face 19 -->
+		<triangular vertex1="v218014824_54" vertex2="v218014824_26" vertex3="v218014824_27" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_27" vertex2="v218014824_57" vertex3="v218014824_54" type="ABSOLUTE"/>
+	<!-- Face 20 -->
+		<triangular vertex1="v218014824_58" vertex2="v218014824_77" vertex3="v218014824_106" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_106" vertex2="v218014824_77" vertex3="v218014824_76" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_58" vertex2="v218014824_106" vertex3="v218014824_56" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_76" vertex2="v218014824_22" vertex3="v218014824_106" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_23" vertex2="v218014824_56" vertex3="v218014824_22" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_22" vertex2="v218014824_56" vertex3="v218014824_106" type="ABSOLUTE"/>
+	<!-- Face 21 -->
+		<triangular vertex1="v218014824_21" vertex2="v218014824_22" vertex3="v218014824_76" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_76" vertex2="v218014824_39" vertex3="v218014824_21" type="ABSOLUTE"/>
+	<!-- Face 22 -->
+		<triangular vertex1="v218014824_39" vertex2="v218014824_76" vertex3="v218014824_77" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_79" vertex2="v218014824_80" vertex3="v218014824_77" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_77" vertex2="v218014824_38" vertex3="v218014824_39" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_38" vertex2="v218014824_77" vertex3="v218014824_80" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_79" vertex2="v218014824_77" vertex3="v218014824_78" type="ABSOLUTE"/>
+	<!-- Face 23 -->
+		<triangular vertex1="v218014824_81" vertex2="v218014824_107" vertex3="v218014824_60" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_59" vertex2="v218014824_60" vertex3="v218014824_107" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_82" vertex2="v218014824_107" vertex3="v218014824_81" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_107" vertex2="v218014824_82" vertex3="v218014824_78" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_79" vertex2="v218014824_78" vertex3="v218014824_82" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_107" vertex2="v218014824_78" vertex3="v218014824_59" type="ABSOLUTE"/>
+	<!-- Face 24 -->
+		<triangular vertex1="v218014824_108" vertex2="v218014824_61" vertex3="v218014824_83" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_81" vertex2="v218014824_60" vertex3="v218014824_108" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_61" vertex2="v218014824_108" vertex3="v218014824_60" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_83" vertex2="v218014824_81" vertex3="v218014824_108" type="ABSOLUTE"/>
+	<!-- Face 25 -->
+		<triangular vertex1="v218014824_109" vertex2="v218014824_62" vertex3="v218014824_84" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_83" vertex2="v218014824_61" vertex3="v218014824_109" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_62" vertex2="v218014824_109" vertex3="v218014824_61" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_84" vertex2="v218014824_83" vertex3="v218014824_109" type="ABSOLUTE"/>
+	<!-- Face 26 -->
+		<triangular vertex1="v218014824_110" vertex2="v218014824_63" vertex3="v218014824_85" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_84" vertex2="v218014824_62" vertex3="v218014824_110" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_63" vertex2="v218014824_110" vertex3="v218014824_62" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_85" vertex2="v218014824_84" vertex3="v218014824_110" type="ABSOLUTE"/>
+	<!-- Face 27 -->
+		<triangular vertex1="v218014824_111" vertex2="v218014824_64" vertex3="v218014824_86" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_85" vertex2="v218014824_63" vertex3="v218014824_111" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_64" vertex2="v218014824_111" vertex3="v218014824_63" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_86" vertex2="v218014824_85" vertex3="v218014824_111" type="ABSOLUTE"/>
+	<!-- Face 28 -->
+		<triangular vertex1="v218014824_112" vertex2="v218014824_65" vertex3="v218014824_87" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_86" vertex2="v218014824_64" vertex3="v218014824_112" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_65" vertex2="v218014824_112" vertex3="v218014824_64" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_87" vertex2="v218014824_86" vertex3="v218014824_112" type="ABSOLUTE"/>
+	<!-- Face 29 -->
+		<triangular vertex1="v218014824_113" vertex2="v218014824_66" vertex3="v218014824_88" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_87" vertex2="v218014824_65" vertex3="v218014824_113" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_66" vertex2="v218014824_113" vertex3="v218014824_65" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_88" vertex2="v218014824_87" vertex3="v218014824_113" type="ABSOLUTE"/>
+	<!-- Face 30 -->
+		<triangular vertex1="v218014824_114" vertex2="v218014824_67" vertex3="v218014824_89" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_88" vertex2="v218014824_66" vertex3="v218014824_114" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_67" vertex2="v218014824_114" vertex3="v218014824_66" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_89" vertex2="v218014824_88" vertex3="v218014824_114" type="ABSOLUTE"/>
+	<!-- Face 31 -->
+		<triangular vertex1="v218014824_90" vertex2="v218014824_115" vertex3="v218014824_47" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_68" vertex2="v218014824_47" vertex3="v218014824_115" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_48" vertex2="v218014824_90" vertex3="v218014824_47" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_89" vertex2="v218014824_67" vertex3="v218014824_115" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_68" vertex2="v218014824_115" vertex3="v218014824_67" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_115" vertex2="v218014824_90" vertex3="v218014824_89" type="ABSOLUTE"/>
+	<!-- Face 32 -->
+		<triangular vertex1="v218014824_116" vertex2="v218014824_69" vertex3="v218014824_46" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_47" vertex2="v218014824_68" vertex3="v218014824_116" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_69" vertex2="v218014824_116" vertex3="v218014824_68" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_46" vertex2="v218014824_47" vertex3="v218014824_116" type="ABSOLUTE"/>
+	<!-- Face 33 -->
+		<triangular vertex1="v218014824_117" vertex2="v218014824_70" vertex3="v218014824_45" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_46" vertex2="v218014824_69" vertex3="v218014824_117" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_70" vertex2="v218014824_117" vertex3="v218014824_69" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_45" vertex2="v218014824_46" vertex3="v218014824_117" type="ABSOLUTE"/>
+	<!-- Face 34 -->
+		<triangular vertex1="v218014824_118" vertex2="v218014824_71" vertex3="v218014824_44" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_45" vertex2="v218014824_70" vertex3="v218014824_118" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_71" vertex2="v218014824_118" vertex3="v218014824_70" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_44" vertex2="v218014824_45" vertex3="v218014824_118" type="ABSOLUTE"/>
+	<!-- Face 35 -->
+		<triangular vertex1="v218014824_119" vertex2="v218014824_72" vertex3="v218014824_43" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_44" vertex2="v218014824_71" vertex3="v218014824_119" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_72" vertex2="v218014824_119" vertex3="v218014824_71" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_43" vertex2="v218014824_44" vertex3="v218014824_119" type="ABSOLUTE"/>
+	<!-- Face 36 -->
+		<triangular vertex1="v218014824_120" vertex2="v218014824_73" vertex3="v218014824_42" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_43" vertex2="v218014824_72" vertex3="v218014824_120" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_73" vertex2="v218014824_120" vertex3="v218014824_72" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_42" vertex2="v218014824_43" vertex3="v218014824_120" type="ABSOLUTE"/>
+	<!-- Face 37 -->
+		<triangular vertex1="v218014824_121" vertex2="v218014824_74" vertex3="v218014824_41" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_42" vertex2="v218014824_73" vertex3="v218014824_121" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_74" vertex2="v218014824_121" vertex3="v218014824_73" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_41" vertex2="v218014824_42" vertex3="v218014824_121" type="ABSOLUTE"/>
+	<!-- Face 38 -->
+		<triangular vertex1="v218014824_122" vertex2="v218014824_75" vertex3="v218014824_40" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_41" vertex2="v218014824_74" vertex3="v218014824_122" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_75" vertex2="v218014824_122" vertex3="v218014824_74" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_40" vertex2="v218014824_41" vertex3="v218014824_122" type="ABSOLUTE"/>
+	<!-- Face 39 -->
+		<triangular vertex1="v218014824_123" vertex2="v218014824_17" vertex3="v218014824_18" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_40" vertex2="v218014824_75" vertex3="v218014824_123" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_17" vertex2="v218014824_123" vertex3="v218014824_75" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_18" vertex2="v218014824_40" vertex3="v218014824_123" type="ABSOLUTE"/>
+	<!-- Face 40 -->
+		<triangular vertex1="v218014824_124" vertex2="v218014824_81" vertex3="v218014824_83" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_124" vertex2="v218014824_83" vertex3="v218014824_84" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_35" vertex2="v218014824_91" vertex3="v218014824_124" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_82" vertex2="v218014824_124" vertex3="v218014824_91" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_124" vertex2="v218014824_82" vertex3="v218014824_81" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_35" vertex2="v218014824_124" vertex3="v218014824_34" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_84" vertex2="v218014824_85" vertex3="v218014824_124" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_89" vertex2="v218014824_90" vertex3="v218014824_124" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_124" vertex2="v218014824_90" vertex3="v218014824_34" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_87" vertex2="v218014824_124" vertex3="v218014824_86" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_124" vertex2="v218014824_87" vertex3="v218014824_88" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_88" vertex2="v218014824_89" vertex3="v218014824_124" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_86" vertex2="v218014824_124" vertex3="v218014824_85" type="ABSOLUTE"/>
+	<!-- Face 41 -->
+		<triangular vertex1="v218014824_125" vertex2="v218014824_79" vertex3="v218014824_82" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_80" vertex2="v218014824_79" vertex3="v218014824_125" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_92" vertex2="v218014824_125" vertex3="v218014824_82" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_82" vertex2="v218014824_91" vertex3="v218014824_92" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_93" vertex2="v218014824_92" vertex3="v218014824_91" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_125" vertex2="v218014824_92" vertex3="v218014824_80" type="ABSOLUTE"/>
+	<!-- Face 42 -->
+		<triangular vertex1="v218014824_38" vertex2="v218014824_80" vertex3="v218014824_126" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_126" vertex2="v218014824_92" vertex3="v218014824_37" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_92" vertex2="v218014824_126" vertex3="v218014824_80" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_126" vertex2="v218014824_37" vertex3="v218014824_38" type="ABSOLUTE"/>
+	<!-- Face 43 -->
+		<triangular vertex1="v218014824_37" vertex2="v218014824_92" vertex3="v218014824_127" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_127" vertex2="v218014824_93" vertex3="v218014824_36" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_93" vertex2="v218014824_127" vertex3="v218014824_92" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_127" vertex2="v218014824_36" vertex3="v218014824_37" type="ABSOLUTE"/>
+	<!-- Face 44 -->
+		<triangular vertex1="v218014824_36" vertex2="v218014824_93" vertex3="v218014824_91" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_91" vertex2="v218014824_35" vertex3="v218014824_36" type="ABSOLUTE"/>
+	<!-- Face 45 -->
+		<triangular vertex1="v218014824_34" vertex2="v218014824_90" vertex3="v218014824_48" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_48" vertex2="v218014824_33" vertex3="v218014824_34" type="ABSOLUTE"/>
+	<!-- Face 46 -->
+		<triangular vertex1="v218014824_59" vertex2="v218014824_78" vertex3="v218014824_77" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_77" vertex2="v218014824_58" vertex3="v218014824_59" type="ABSOLUTE"/>
+	<!-- Face 47 -->
+		<triangular vertex1="v218014824_128" vertex2="v218014824_51" vertex3="v218014824_24" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_25" vertex2="v218014824_49" vertex3="v218014824_128" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_51" vertex2="v218014824_128" vertex3="v218014824_49" type="ABSOLUTE"/>
+		<triangular vertex1="v218014824_24" vertex2="v218014824_25" vertex3="v218014824_128" type="ABSOLUTE"/>
+	</tessellated>
+</solids>
+
+<structure>
+
+	<volume name="Outboard60_LogVol">
+		<materialref ref="TUNGSTEN_095W"/>
+		<solidref ref="Outboard60_Solid"/>
+	</volume>
+
+	<volume name="Structure_Outboard60">
+		<materialref ref="AIR"/>
+		<solidref ref="WorldSphereRef"/>
+
+		<physvol>
+			<volumeref ref="Outboard60_LogVol"/>
+			<position name="posRef_1" x="102.5028" y="0.7676" z="-1.2933"/>
+			<rotationref ref="identity"/>
+		</physvol>
+	</volume>
+</structure>
+
+<setup name="Default" version="1.0">
+	<world ref="Structure_Outboard60"/>
+</setup>
+
+</gdml>

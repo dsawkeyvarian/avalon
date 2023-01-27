@@ -1,0 +1,74 @@
+:::::::::::::::::::::::::::::::::::::::::::::::::::
+(A) MLC transmission and Dosimetric Leaf Separation
+
+Measurementgeometry: 
+ SPD=95 cm.
+Field Size: 
+ FS = 10 x 10 cm2. 
+
+
+TRANSMISSION: 
+
+reference: "Verification of Dosimetric Leaf Gap [HUCH, 2016]" -study
+
+OPEN 06X = 1.2 %	(mlc:n at location of air cavity/ at location of full-tugnsten)
+OPEN 10X = 1.4 %
+OPEN 15X = 1.4 % 
+
+FFF 06X = 1.0 %
+FFF 10X = 1.2 %
+
+
+DLS ESTIMATE 
+
+reference: "Verification of Dosimetric Leaf Gap [HUCH, 2016]" -study
+
+OPEN 06X = 1.2 mm
+OPEN 10X = 1.4 mm
+OPEN 15X = 1.4 mm 
+FFF 06X = 1.0 mm
+FFF 10X = 1.2 mm 
+
+
+
+::::::::::::::::::::::::::::::::
+(B) Tray and Block Transmissions
+
+Field Size: 
+ FS = 5 x 5 cm2. 
+Measurementgeometry: 
+ SPD=95 cm. 
+Location of detector
+ Peff = 5 cm 
+ on Beam CAX.
+
+
+----------
+Only Tray:
+
+OPEN 06X = 96.8 %   
+OPEN 10X = 97.6 % 
+OPEN 15X = 97.9 %
+
+FFF 06X = 96.3 % 
+FFF 10X = 97.2 %
+
+-----------
+Only Block:
+
+OPEN 06X = 4.5 % 
+OPEN 10X = 4.9 %
+OPEN 15X = 5.0 %
+
+FFF 06X = 3.9 % 
+FFF 10X = 4.6 %
+
+-------------
+Tray & Block:
+
+OPEN 06X = 4.4 % 
+OPEN 10X = 4.7 %
+OPEN 15X = 4.9 %
+
+FFF 06X = 3.9 % 
+FFF 10X = 4.6 %

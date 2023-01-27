@@ -1,0 +1,57 @@
+{
+	//Two static fields in same json with control points
+	"num_particles": 10000000,
+    "physics_model": "QGSP_BIC",
+    "treatment_head": {
+        "type": "no_head",
+        "source": "uniform_point"
+    },
+    "uniform_point_source": {
+        "particle": "PHOTON",
+        "z": [1000.0, "mm"],
+        "spectrum": {
+            "unit": "MeV",
+            "energies": [0.00000, 0.07500, 0.22500, 0.37500, 0.52500, 0.67500, 0.82500, 0.97500, 1.12500, 1.27500, 1.42500, 1.57500, 1.72500, 1.87500, 2.02500, 2.17500, 2.32499, 2.47499, 2.62499, 2.77499, 2.92499, 3.07499, 3.22499, 3.37499, 3.52499, 3.67499, 3.82499, 3.97499, 4.12499, 4.27499, 4.42499, 4.57499, 4.72499, 4.87499, 5.02499, 5.17499, 5.32499, 5.47499, 5.62499, 5.77499, 5.92499, 5.99999, 6.07499],
+            "intensities": [0.00000, 0.22270, 1.38521, 1.49894, 1.20472, 0.94601, 0.74626, 0.61317, 0.51813, 0.43576, 0.37460, 0.33335, 0.29606, 0.26020, 0.22824, 0.21108, 0.19138, 0.16633, 0.15929, 0.13970, 0.12627, 0.11495, 0.10895, 0.09709, 0.08718, 0.08227, 0.07822, 0.06882, 0.06269, 0.06091, 0.05453, 0.05016, 0.04290, 0.04609, 0.04031, 0.02844, 0.03023, 0.02151, 0.01822, 0.01866, 0.01341, 0.01063, 0.00000]
+        },
+        "field_size": {
+            "unit": "mm",
+            "x1": -20,
+            "x2": 20,
+            "y1": -20,
+            "y2": 20
+        }
+    },
+    "phantom": {
+        "type": "water_box",
+        "center_position": [0.0, 0.0, 0.0, "cm"],
+        "size": [30.0, 30.0, 30.0, "cm"]
+    },
+    "dose_grids": [
+        {
+            "filename": "out.dose",
+            "center_position": [0.0, 0.0, 0.0, "cm"],
+            "size": [30.0, 1.0, 30.0, "cm"],
+            "num_voxels": [30, 1, 30]
+        }
+    ],
+    "num_simulation_points": 500,
+    "control_points": [
+        {
+            "cumulative_meterset_weight": 0.0,
+            "angles": {"unit": "deg", "gantry": 0.0, "collimator": 0.0}
+        },
+        {
+            "cumulative_meterset_weight": 0.5,
+            "angles": {"unit": "deg", "gantry": 0.0, "collimator": 0.0}
+        },
+        {
+            "cumulative_meterset_weight": 0.5,
+            "angles": {"unit": "deg", "gantry": 90.0, "collimator": 0.0}
+        },
+        {
+            "cumulative_meterset_weight": 1.0,
+            "angles": {"unit": "deg", "gantry": 90.0, "collimator": 0.0}
+        }
+    ]
+}

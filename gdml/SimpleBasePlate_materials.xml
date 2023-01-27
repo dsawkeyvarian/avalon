@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--   GDML materials definition from the Fastrad file : "FrictionRing2.ray"
+       Processed the 01/04/2009 at 11h32 by the GDML module of Fastrad 3.0 -->
+
+<materials>
+	<element name="videRef" formula="VACUUM" Z="1">
+		<atom value="1"/>
+	</element> 
+	<!--	<element name="chromium" formula="Cr" Z="24">
+		<atom value="51.9961"/>
+	</element>
+	<element name="iron" formula="Fe" Z="26">
+		<atom value="55.8450"/>
+	</element>
+	<element name="nickel" formula="Ni" Z="28">
+		<atom value="58.6934"/>
+	</element>-->
+	
+	<element name="carbon" formula="C" Z="6">
+		<atom value="12.0107"/>
+	</element>
+	<element name="nitrogen" formula="N" Z="7">
+		<atom value="14.0070"/>
+	</element>
+	<element name="oxygen" formula="O" Z="8">
+		<atom value="15.9994"/>
+	</element>
+	<element name="argon" formula="Ar" Z="18">
+		<atom value="39.9480"/>
+	</element>
+	
+	<element name="sulfur" formula="S" Z="16">
+		<atom value="32.0660"/>
+	</element>
+	<element name="silicon" formula="Si" Z="14">
+		<atom value="28.0855"/>
+	</element>
+	<element name="phosphorus" formula="P" Z="15">
+		<atom value="30.9738"/>
+	</element>
+	<element name="iron" formula="Fe" Z="26">
+		<atom value="55.8450"/>
+	</element>
+	<!-- 	<material name="Vacuum" formula="Vacuum">
+		<D value ="1E-25" unit="g/cm3"/>
+		<fraction n="1.0" ref="videRef"/>
+	</material>-->
+	
+	<material name="AIR" formula="AIR">
+		<D value ="0.0012" unit="g/cm3"/>
+		<fraction n="0.0001" ref="carbon"/>
+		<fraction n="0.7553" ref="nitrogen"/>
+		<fraction n="0.2318" ref="oxygen"/>
+		<fraction n="0.0128" ref="argon"/>
+	</material>	
+	<material name="STEEL_STAINLESS_A36" formula="STEEL_STAINLESS_A36">
+		<D value ="7.86112" unit="g/cm3"/>
+		<fraction n="0.0025" ref="carbon"/>
+		<fraction n="0.0004" ref="phosphorus"/>
+		<fraction n="0.0005" ref="sulfur"/>
+		<fraction n="0.004" ref="silicon"/>		
+		<fraction n="0.9926" ref="iron"/>
+	</material>
+</materials>
+

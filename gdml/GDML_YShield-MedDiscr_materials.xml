@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--   GDML materials definition from the Fastrad file : "Y-Shield.ray"
+       Processed the 25/01/2011 at 09h22 by the GDML module of Fastrad 3.1.0.4 -->
+
+<materials>
+	<element name="videRef" formula="VACUUM" Z="1">
+		<atom value="1"/>
+	</element>
+	<element name="lead" formula="Pb" Z="82">
+		<atom value="207.20"/>
+	</element>
+	<element name="antimony" formula="Sb" Z="51">
+		<atom value="121.75"/>
+	</element>	
+	
+	<element name="carbon" formula="C" Z="6">
+		<atom value="12.0107"/>
+	</element>
+	<element name="nitrogen" formula="N" Z="7">
+		<atom value="14.0070"/>
+	</element>
+	<element name="oxygen" formula="O" Z="8">
+		<atom value="15.9994"/>
+	</element>
+	<element name="argon" formula="Ar" Z="18">
+		<atom value="39.9480"/>
+	</element>
+	
+	<material name="AIR" formula="AIR">
+		<D value ="0.0012" unit="g/cm3"/>
+		<fraction n="0.0001" ref="carbon"/>
+		<fraction n="0.7553" ref="nitrogen"/>
+		<fraction n="0.2318" ref="oxygen"/>
+		<fraction n="0.0128" ref="argon"/>
+	</material>
+	
+	<material name="Lead-Antimony" formula="Lead-Antimony">
+		<D value ="11.10" unit="g/cm3"/>
+		<fraction n="0.9700" ref="lead"/>
+		<fraction n="0.0300" ref="antimony"/>
+	</material>
+</materials>
