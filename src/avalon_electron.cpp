@@ -1493,15 +1493,16 @@ void buildFoils(G4LogicalVolume* parent_logical, double parent_z_world)
 		double foil1Thick = 0.136*mm;
 		double foil1Radius = 6.*mm;
 		double foil1PositionBottom = 62.7*mm;
-		auto material = G4Material::GetMaterial("G4_Ta");
+		//auto material = G4Material::GetMaterial("G4_Ta");
+		//auto material = G4Material::GetMaterial("G4_W");
 		auto fEfoil1_tubs = new G4Tubs("efoil1", 0.0*mm, foil1Radius, foil1Thick/2.,
 												0.*deg, 360.*deg);
-		auto fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, material,
+		G4LogicalVolume* fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, G4Material::GetMaterial("G4_W"),
 																		 "efoil1_LV", 0, 0, 0);
 
 		auto foil1_pos = g_SAD - foil1PositionBottom + foil1Thick/2.;
 
-		auto fEfoil1 = new G4PVPlacement(0,
+		new G4PVPlacement(0,
 					G4ThreeVector(0., 0., foil1_pos - parent_z_world),
 					fEfoil1_LV, "electronFoil1", parent_logical, false, 0);
 
@@ -1653,68 +1654,72 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                           G4Material::GetMaterial("ZincZA8"),
                           "scraper1", 0, 0, 0);
 
-  new G4PVPlacement(0, G4ThreeVector(0., 0., -parent_z_world),
+ // 0 is 682 mm from isocenter
+ // bottom of scraper is 346 mm from iso
+ new G4PVPlacement(0, G4ThreeVector(0., 0., -336.*mm),
       scraper1_LV, "scraper1", parent_logical, false, 0);
 
   // Al support for scraper 1
-  //G4Box* scraper1_support1 =
-  //  new G4Box("scraper_support1", rbot_1/std::sqrt(2.) + al_width,
-  //            rbot_1/std::sqrt(2.) + al_width, t11/2.);
+  G4Box* scraper1_support1 =
+    new G4Box("scraper_support1", rbot_1/std::sqrt(2.) + al_width,
+              rbot_1/std::sqrt(2.) + al_width, t11/2.);
 
-  //G4Box* scraper1_support2 =
-  //  new G4Box("scraper_support2", rbot_1/std::sqrt(2.) + 5.*mm,
-  //            rbot_1/std::sqrt(2.) + 5.*mm,
-  //            t11/2. + delta);
+  G4Box* scraper1_support2 =
+    new G4Box("scraper_support2", rbot_1/std::sqrt(2.) + 5.*mm,
+              rbot_1/std::sqrt(2.) + 5.*mm,
+              t11/2. + delta);
 
-  //G4SubtractionSolid* scraper1_support3 =
-  //  new G4SubtractionSolid("scraper_support3", scraper1_support1,
-  //    scraper1_support2, 0, G4ThreeVector());
+  G4SubtractionSolid* scraper1_support3 =
+    new G4SubtractionSolid("scraper_support3", scraper1_support1,
+      scraper1_support2, 0, G4ThreeVector());
 
-  //G4LogicalVolume* scraper1Support_LV =
-  //  new G4LogicalVolume(scraper1_support3,
-  //                      G4Material::GetMaterial("Aluminum6061"),
-  //                      "scraper1_support", 0, 0, 0);
+  G4LogicalVolume* scraper1Support_LV =
+    new G4LogicalVolume(scraper1_support3,
+                        G4Material::GetMaterial("Aluminum6061"),
+                        "scraper1_support", 0, 0, 0);
 
-  //new G4PVPlacement(0, G4ThreeVector(0., 0., g_SAD - pos_1 + t11/2. - parent_z_world),
-  //              scraper1Support_LV, "scraper1_support", parent_logical, false, 0);
+  new G4PVPlacement(0, G4ThreeVector(0., 0., + t11/2. - 336.*mm),
+                scraper1Support_LV, "scraper1_support", parent_logical, false, 0);
 
-  ////scraper 2
-  //const G4int numRZ_2 = 10;
-  //const G4double scr_r_2[numRZ_2] =
-  //  {rtop_2, r21, r22, r23,
-  //   r24, r24, r23, r22,
-  //   r21, rbot_2};
-  //const G4double scr_z_2[numRZ_2] =
-  //  {thick_2, thick_2, t21, t22,
-  //   t22, t23, t23, t24,
-  //   0., 0.};
+  //scraper 2
+  const G4int numRZ_2 = 10;
+  const G4double scr_r_2[numRZ_2] =
+    {rtop_2, r21, r22, r23,
+     r24, r24, r23, r22,
+     r21, rbot_2};
+  const G4double scr_z_2[numRZ_2] =
+    {thick_2, thick_2, t21, t22,
+     t22, t23, t23, t24,
+     0., 0.};
 
-  //G4Polyhedra* scraper2poly =
-  //  new G4Polyhedra("scraper2", pi/4., 9.*pi/4., 4., numRZ_2, scr_r_2, scr_z_2);
+  G4Polyhedra* scraper2poly =
+    new G4Polyhedra("scraper2", pi/4., 9.*pi/4., 4., numRZ_2, scr_r_2, scr_z_2);
 
-  //G4LogicalVolume* scraper2_LV =
-  //    new G4LogicalVolume(scraper2poly,
-  //                        G4Material::GetMaterial("ZincZA8"),
-  //                        "scraper2", 0, 0, 0);
+  G4LogicalVolume* scraper2_LV =
+      new G4LogicalVolume(scraper2poly,
+                          G4Material::GetMaterial("ZincZA8"),
+                          "scraper2", 0, 0, 0);
 
-  //new G4PVPlacement(0, G4ThreeVector(0., 0., g_SAD - pos_2 - parent_z_world),
-  //    scraper2_LV, "scraper2", parent_logical, false, 0);
+  // bottom is 215 mm from isocentre
+  new G4PVPlacement(0, G4ThreeVector(0., 0., -467.*mm),
+      scraper2_LV, "scraper2", parent_logical, false, 0);
 
   ////scraper 3
-  //const G4int numRZ_3 = 4;
-  //const G4double scr_r_3[numRZ_3] = {rtop_3, r31, r32, rbot_3};
-  //const G4double scr_z_3[numRZ_3] = {thick_3, thick_3, 0., 0.};
+  const G4int numRZ_3 = 4;
+  const G4double scr_r_3[numRZ_3] = {rtop_3, r31, r32, rbot_3};
+  const G4double scr_z_3[numRZ_3] = {thick_3, thick_3, 0., 0.};
 
-  //G4Polyhedra* scraper3poly =
-  //  new G4Polyhedra("scraper3", pi/4., 9.*pi/4., 4., numRZ_3, scr_r_3, scr_z_3);
+  G4Polyhedra* scraper3poly =
+    new G4Polyhedra("scraper3", pi/4., 9.*pi/4., 4., numRZ_3, scr_r_3, scr_z_3);
 
-  //G4LogicalVolume* scraper3_LV =
-  //    new G4LogicalVolume(scraper3poly,
-  //                        G4Material::GetMaterial("cerrotru"),
-  //                        "scraper3", 0, 0, 0);
+  G4LogicalVolume* scraper3_LV =
+      new G4LogicalVolume(scraper3poly,
+                          G4Material::GetMaterial("cerrotru"),
+                          "scraper3", 0, 0, 0);
 
-  //new G4PVPlacement(0, G4ThreeVector(0., 0., g_SAD - pos_3 - parent_z_world),
-  //    scraper3_LV, "scraper3", parent_logical, false, 0);
+  // bottom is 50 mm from isocenter
+  new G4PVPlacement(0, G4ThreeVector(0., 0., -632.*mm),
+      scraper3_LV, "scraper3", parent_logical, false, 0);
 
   G4VisAttributes* applicator1_VisAtt =
     new G4VisAttributes(G4Colour(0.5, 0.5, 1.0, 0.9));

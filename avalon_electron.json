@@ -20,11 +20,16 @@
    "dose_grids": [
      {
        "filename": "out.dose",
-       "center_position": [0.0, 0.0, -15.0, "cm"],
-       "size": [30.0, 30.0, 30.0, "cm"],
-       "num_voxels": [1, 1, 30]
+       "center_position": [0.0, 0.0, -6.0, "cm"],
+       "size": [60.0, 60.0, 12.0, "cm"],
+       "num_voxels": [60, 60, 12]
      }
   ],
+  "phantom": {
+    "type": "water_box",
+    "center_position": [0.0, 0.0, -6.0, "cm"],
+    "size": [60.0, 60.0, 12.0, "cm"]
+  },
 
 
 	"simulation_points": [

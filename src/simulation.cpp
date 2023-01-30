@@ -144,8 +144,8 @@ protected:
 		data.mom_y = static_cast<float>(momentum_direction.y());
 		data.weight = weight;
 
-    //if (fabs(position.x()) > 150.*mm && fabs(position.y()) > 150.*mm) {
-    //  G4cout << "Keeping!" << G4endl;
+    //if (fabs(position.x()) > 100.*mm) { // && fabs(position.y()) > 150.*mm) {
+    //  //G4cout << "Keeping!" << G4endl;
     //  G4EventManager::GetEventManager()->KeepTheCurrentEvent();
     //}
 
@@ -1249,6 +1249,7 @@ void runG4Simulation(
 	const auto bm = input_params.biasing_mode;
 	if (bm == BiasingMode::NONE) {
 		pUI->ApplyCommand("/run/setCut 100 um");
+    pUI->ApplyCommand("/tracking/verbose 1");
 		std::cout << "Biasing mode: NONE" << std::endl;
 	}
 	else if (bm == BiasingMode::TARGET) {
@@ -1293,6 +1294,9 @@ void runG4Simulation(
 		visManager->Initialize();
 		pUI->ApplyCommand("/vis/open OGLSQt 1024x768-0+0");
 		pUI->ApplyCommand("/vis/drawVolume");
+    pUI->ApplyCommand("/vis/viewer/set/viewpointVector 1 0 0");
+    pUI->ApplyCommand("/vis/scene/add/trajectories smooth");
+    pUI->ApplyCommand("/vis/scene/endOfEventAction accumulate");
 		ui->SessionStart();
 		return;
 	}

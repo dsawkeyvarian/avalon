@@ -220,9 +220,11 @@ std::unique_ptr<LinacSource> getAvalon15ESource()
     const GaussianRandomSource avalon_15e_src = {
         16.5, 0.1, //energy
         Vec2{0.0, 0.0}, //spot_position
-        Vec2{0.8345, 0.8710}, //spot_size
+        //Vec2{0.8345, 0.8710}, //spot_size
+        Vec2{0.0, 0.0}, //spot_size
         Vec2{0.0, 0.0}, //angle (radians)
-        Vec2{0.001, 0.001} //angle_divergence (radians)
+        //Vec2{0.001, 0.001} //angle_divergence (radians)
+        Vec2{0.00, 0.00} //angle_divergence (radians)
     };
     return std::make_unique<GaussianElectronSource>(avalon_15e_src);
 }
