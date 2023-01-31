@@ -90,7 +90,7 @@ static const std::array< ValidCombination, 5> validCombinations = {
     {MLCType::AVALON}, {EnergyMode::X06, EnergyMode::X06_FFF,EnergyMode::X10_FFF,EnergyMode::X10}},
 
    ValidCombination{TreatmentHeadType::AVALON_ELECTRON,
-    {MLCType::AVALON}, {EnergyMode::E15}},
+    {MLCType::AVALON}, {EnergyMode::E15, EnergyMode::X06_FFF}},
 
    ValidCombination{TreatmentHeadType::NOHEAD,
     {MLCType::NONE}, {EnergyMode::NONE}}
@@ -130,7 +130,7 @@ namespace avalon
 
 namespace avalon_electron
 {
-  static const std::array<EnergyMode, 1> energy_modes = {EnergyMode::E15};
+  static const std::array<EnergyMode, 2> energy_modes = {EnergyMode::E15, EnergyMode::X06_FFF};
   const size_t num_proximal_leaves_in_bank = 47;
   const size_t num_distal_leaves_in_bank = 46;
 }

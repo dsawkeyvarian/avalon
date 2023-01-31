@@ -1,5 +1,5 @@
 {
-  "num_particles": 1,
+  "num_particles": 100000,
   "physics_model": "QGSP_BIC_EMZ",
   "biasing_mode": "none",
 	"treatment_head": {
@@ -13,22 +13,22 @@
        "phsp_filename": "avalon_105x105mm_0mm.phsp",
        "center_position": [0.0, 0.0, 0.0, "cm"],
        "size": [100.0, 100.0, 0.01, "cm"],
-       "kill_particles": true,
+       "kill_particles": false,
        "attach": "gantry"
       }
    ],
    "dose_grids": [
      {
        "filename": "out.dose",
-       "center_position": [0.0, 0.0, -6.0, "cm"],
-       "size": [60.0, 60.0, 12.0, "cm"],
-       "num_voxels": [60, 60, 12]
+       "center_position": [0.0, 0.0, -8.0, "cm"],
+       "size": [60.0, 60.0, 16.0, "cm"],
+       "num_voxels": [60, 60, 16]
      }
   ],
   "phantom": {
     "type": "water_box",
-    "center_position": [0.0, 0.0, -6.0, "cm"],
-    "size": [60.0, 60.0, 12.0, "cm"]
+    "center_position": [0.0, 0.0, -8.0, "cm"],
+    "size": [60.0, 60.0, 16.0, "cm"]
   },
 
 

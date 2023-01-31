@@ -531,7 +531,7 @@ int doLinacSimulation(
   }
 
   else if(th_source_info.th_config.th_type == TreatmentHeadType::AVALON_ELECTRON) {
-    if(th_source_info.th_config.energy_mode == EnergyMode::E15)
+    //if(th_source_info.th_config.energy_mode == EnergyMode::E15)
         linac_source = getAvalon15ESource();
     treatment_head = std::make_unique<avalon_electron::TreatmentHeadDetector>(th_source_info.th_config.energy_mode,
     //treatment_head = std::make_unique<avalon::TreatmentHeadDetector>(th_source_info.th_config.energy_mode,

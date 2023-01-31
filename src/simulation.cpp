@@ -1249,7 +1249,7 @@ void runG4Simulation(
 	const auto bm = input_params.biasing_mode;
 	if (bm == BiasingMode::NONE) {
 		pUI->ApplyCommand("/run/setCut 100 um");
-    pUI->ApplyCommand("/tracking/verbose 1");
+    pUI->ApplyCommand("/tracking/verbose 0");
 		std::cout << "Biasing mode: NONE" << std::endl;
 	}
 	else if (bm == BiasingMode::TARGET) {

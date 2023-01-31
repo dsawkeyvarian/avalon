@@ -1493,11 +1493,10 @@ void buildFoils(G4LogicalVolume* parent_logical, double parent_z_world)
 		double foil1Thick = 0.136*mm;
 		double foil1Radius = 6.*mm;
 		double foil1PositionBottom = 62.7*mm;
-		//auto material = G4Material::GetMaterial("G4_Ta");
-		//auto material = G4Material::GetMaterial("G4_W");
+		auto material = G4Material::GetMaterial("G4_Ta");
 		auto fEfoil1_tubs = new G4Tubs("efoil1", 0.0*mm, foil1Radius, foil1Thick/2.,
 												0.*deg, 360.*deg);
-		G4LogicalVolume* fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, G4Material::GetMaterial("G4_W"),
+		G4LogicalVolume* fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, material,
 																		 "efoil1_LV", 0, 0, 0);
 
 		auto foil1_pos = g_SAD - foil1PositionBottom + foil1Thick/2.;
@@ -1654,9 +1653,10 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                           G4Material::GetMaterial("ZincZA8"),
                           "scraper1", 0, 0, 0);
 
- // 0 is 682 mm from isocenter
+ // 0 is 682 mm from isocenter minus 245 equals 437
  // bottom of scraper is 346 mm from iso
- new G4PVPlacement(0, G4ThreeVector(0., 0., -336.*mm),
+ //new G4PVPlacement(0, G4ThreeVector(0., 0., -336.*mm),
+ new G4PVPlacement(0, G4ThreeVector(0., 0., -101.*mm),
       scraper1_LV, "scraper1", parent_logical, false, 0);
 
   // Al support for scraper 1
@@ -1678,7 +1678,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                         G4Material::GetMaterial("Aluminum6061"),
                         "scraper1_support", 0, 0, 0);
 
-  new G4PVPlacement(0, G4ThreeVector(0., 0., + t11/2. - 336.*mm),
+  new G4PVPlacement(0, G4ThreeVector(0., 0., + t11/2. - 101.*mm),
                 scraper1Support_LV, "scraper1_support", parent_logical, false, 0);
 
   //scraper 2
@@ -1701,7 +1701,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                           "scraper2", 0, 0, 0);
 
   // bottom is 215 mm from isocentre
-  new G4PVPlacement(0, G4ThreeVector(0., 0., -467.*mm),
+  new G4PVPlacement(0, G4ThreeVector(0., 0., -222.*mm),
       scraper2_LV, "scraper2", parent_logical, false, 0);
 
   ////scraper 3
@@ -1718,7 +1718,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                           "scraper3", 0, 0, 0);
 
   // bottom is 50 mm from isocenter
-  new G4PVPlacement(0, G4ThreeVector(0., 0., -632.*mm),
+  new G4PVPlacement(0, G4ThreeVector(0., 0., -387.*mm),
       scraper3_LV, "scraper3", parent_logical, false, 0);
 
   G4VisAttributes* applicator1_VisAtt =
@@ -2583,8 +2583,9 @@ G4VPhysicalVolume* TreatmentHeadDetector::Construct() {
 	buildMaterials();
 	G4NistManager* NISTman = G4NistManager::Instance();
 	auto world_material = NISTman->FindOrBuildMaterial("G4_AIR");
-  const double collimator_delta = 0.*mm; //462.*mm;
-	const double collimator_position_z = -8.*mm; // + collimator_delta; 
+
+  const G4double c1 = 245.*mm;//345.*mm;
+  const double collimator_position_z = -8.*mm - c1;
 	const double gantry_position_z = 690.0 * mm;
 
 	G4LogicalVolume* world_logical = nullptr;
@@ -2608,7 +2609,8 @@ G4VPhysicalVolume* TreatmentHeadDetector::Construct() {
 	//Collimator volume
 	G4LogicalVolume* collimator_logical = nullptr;
 	{
-		G4Tubs* collimator_tubs = new G4Tubs("collimator", 0. * mm, 300. * mm, 170. * mm + 462.*mm, 0. * deg, 360. * deg);
+		//G4Tubs* collimator_tubs = new G4Tubs("collimator", 0. * mm, 300. * mm, 170. * mm + 462.*mm, 0. * deg, 360. * deg);
+		G4Tubs* collimator_tubs = new G4Tubs("collimator", 0. * mm, 300. * mm, 170. * mm + 462.*mm - c1, 0. * deg, 360. * deg);
 		collimator_logical = new G4LogicalVolume(collimator_tubs, world_material, "collimator", 0, 0, 0);
 		m_collimator = new G4PVPlacement(nullptr, G4ThreeVector(0.0, 0.0, collimator_position_z), 
 			collimator_logical, "collimator", gantry_logical, false, 0);
