@@ -45,6 +45,8 @@
 #include "G4UIcmdWithoutParameter.hh"
 #include "G4UIcmdWithAnInteger.hh"
 
+#include "G4ParticleTypes.hh"
+
 #include <fmt/core.h>
 #include <chrono>
 #include <atomic>
@@ -144,10 +146,12 @@ protected:
 		data.mom_y = static_cast<float>(momentum_direction.y());
 		data.weight = weight;
 
-    //if (fabs(position.x()) > 100.*mm) { // && fabs(position.y()) > 150.*mm) {
-    //  //G4cout << "Keeping!" << G4endl;
-    //  G4EventManager::GetEventManager()->KeepTheCurrentEvent();
-    //}
+    if ((position.x()) > 170.*mm && position.x() < 240.*mm &&
+         fabs(position.y()) < 50.*mm &&
+         track->GetParticleDefinition() == G4Electron::Electron()) { // || fabs(position.y()) > 100.*mm) {
+      //G4cout << "Keeping!" << G4endl;
+      G4EventManager::GetEventManager()->KeepTheCurrentEvent();
+    }
 
 	}
 
@@ -1157,6 +1161,7 @@ void runG4Simulation(
 	G4VModularPhysicsList* physics_list = factory.GetReferencePhysList(physics_name);
 	//pUI->ApplyCommand("/process/em/verbose 0");
 	//pUI->ApplyCommand("/process/had/verbose 0");
+  pUI->ApplyCommand("/run/printProgress 1000");
 	
 	const std::unordered_map<int, TraversedGeometry>* id_to_traversed = &detector->getTraversedGeometryMapping();
 

@@ -1721,14 +1721,18 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   new G4PVPlacement(0, G4ThreeVector(0., 0., -387.*mm),
       scraper3_LV, "scraper3", parent_logical, false, 0);
 
-  G4VisAttributes* applicator1_VisAtt =
+  G4VisAttributes* scraper1_VisAtt =
     new G4VisAttributes(G4Colour(0.5, 0.5, 1.0, 0.9));
-  G4VisAttributes* applicator2_VisAtt =
+  G4VisAttributes* scraper1Support_VisAtt =
+    new G4VisAttributes(G4Colour(0.5, 1.0, 0.5, 0.9));
+  G4VisAttributes* scraper2_VisAtt =
     new G4VisAttributes(G4Colour(1.0, 0.5, 0.2, 0.9));
-  scraper1_LV-> SetVisAttributes(applicator1_VisAtt);
-  //scraper1Support_LV->SetVisAttributes(applicator2_VisAtt);
-  //scraper2_LV-> SetVisAttributes(applicator1_VisAtt);
-  //scraper3_LV-> SetVisAttributes(applicator1_VisAtt);
+  G4VisAttributes* scraper3_VisAtt =
+    new G4VisAttributes(G4Colour(1.0, 1.0, 0.2, 0.9));
+  scraper1_LV->SetVisAttributes(scraper1_VisAtt);
+  scraper1Support_LV->SetVisAttributes(scraper1Support_VisAtt);
+  scraper2_LV->SetVisAttributes(scraper2_VisAtt);
+  scraper3_LV->SetVisAttributes(scraper3_VisAtt);
 
 
 
