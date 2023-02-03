@@ -1619,9 +1619,9 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   //scraper2
   rtop_2   = 172.1*mm/2.*std::sqrt(2.);
   r21      = rtop_2 + sc2_width[0];
-  r22      = rtop_2 + sc2_width[0];
-  r23      = rtop_2 + sc2_width[0];
-  r24      = rtop_2 + sc2_width[0];
+  r22      = rtop_2 + sc2_width[1];
+  r23      = rtop_2 + sc2_width[2];
+  r24      = rtop_2 + sc2_width[3];
   t21      = thick_2/2. + 3.*mm;
   t22      = thick_2/2. + 1.*mm;
   t23      = thick_2/2. - 1.*mm;
@@ -1684,13 +1684,11 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   //scraper 2
   const G4int numRZ_2 = 10;
   const G4double scr_r_2[numRZ_2] =
-    {rtop_2, r21, r22, r23,
-     r24, r24, r23, r22,
-     r21, rbot_2};
+    //{rtop_2, rtop_2 + 20.*mm, rtop_2 + 50.*mm, rtop_2 + 20.*mm, rbot_2};
+    {rtop_2, r21, r22, r23, r24, r24, r23, r22, r21, rbot_2};
   const G4double scr_z_2[numRZ_2] =
-    {thick_2, thick_2, t21, t22,
-     t22, t23, t23, t24,
-     0., 0.};
+    {thick_2, thick_2, t21, t22, t22, t23, t23, t24, 0., 0.};
+    //{thick_2, thick_2, thick_2/2., 0., 0.};
 
   G4Polyhedra* scraper2poly =
     new G4Polyhedra("scraper2", pi/4., 9.*pi/4., 4., numRZ_2, scr_r_2, scr_z_2);

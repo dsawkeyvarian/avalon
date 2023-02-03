@@ -1,6 +1,6 @@
 {
-  //"num_particles": 10000000,
-  "num_particles": 10000,
+  "num_particles": 10000000,
+  //"num_particles": 10000,
   "physics_model": "QGSP_BIC_EMZ",
   "biasing_mode": "none",
 	"treatment_head": {
