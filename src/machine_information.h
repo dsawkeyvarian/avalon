@@ -49,6 +49,7 @@ enum class EnergyMode {
   X10,
   X10_FFF,
   X15,
+  E09,
   E15,
   NUM_ENERGY_MODES
 };
@@ -61,6 +62,7 @@ static const char* energy_mode_names[] = {
   "10X",
   "10X-FFF",
   "15X",
+  "9E",
   "15E"
 };
 static_assert(static_cast<size_t>(EnergyMode::NUM_ENERGY_MODES) == SIZEOFARRAY(energy_mode_names));
@@ -90,7 +92,7 @@ static const std::array< ValidCombination, 5> validCombinations = {
     {MLCType::AVALON}, {EnergyMode::X06, EnergyMode::X06_FFF,EnergyMode::X10_FFF,EnergyMode::X10}},
 
    ValidCombination{TreatmentHeadType::AVALON_ELECTRON,
-    {MLCType::AVALON}, {EnergyMode::E15, EnergyMode::X06_FFF}},
+    {MLCType::AVALON}, {EnergyMode::E09, EnergyMode::E15, EnergyMode::X06_FFF}},
 
    ValidCombination{TreatmentHeadType::NOHEAD,
     {MLCType::NONE}, {EnergyMode::NONE}}

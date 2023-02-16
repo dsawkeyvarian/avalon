@@ -1464,75 +1464,115 @@ void buildSecondaryCollimator(G4LogicalVolume* parent_logical, const double pare
     }
 }
 
-void buildFoils(G4LogicalVolume* parent_logical, double parent_z_world)
+void buildFoils(G4LogicalVolume* parent_logical, double parent_z_world, EnergyMode energyMode)
 {
 	// TODO be window?
 
-		G4NistManager* NISTman = G4NistManager::Instance();
-	  NISTman->FindOrBuildMaterial("G4_Ta");
-    G4Element* elAl = NISTman->FindOrBuildElement("Al");
-    G4Element* elSi = NISTman->FindOrBuildElement("Si");
-    G4Element* elMg = NISTman->FindOrBuildElement("Mg");
-    G4Element* elCu = NISTman->FindOrBuildElement("Cu");
-    G4Element* elCr = NISTman->FindOrBuildElement("Cr");
+  G4NistManager* NISTman = G4NistManager::Instance();
+  NISTman->FindOrBuildMaterial("G4_Ta");
+  G4Element* elAl = NISTman->FindOrBuildElement("Al");
+  G4Element* elSi = NISTman->FindOrBuildElement("Si");
+  G4Element* elMg = NISTman->FindOrBuildElement("Mg");
+  G4Element* elCu = NISTman->FindOrBuildElement("Cu");
+  G4Element* elCr = NISTman->FindOrBuildElement("Cr");
+  G4Element* elZn = NISTman->FindOrBuildElement("Zn");
+  G4Element* elPb = NISTman->FindOrBuildElement("Pb");
+  G4Element* elFe = NISTman->FindOrBuildElement("Fe");
 
-      //aluminum 6061
-    double density = 2.70*g/cm3;
-    G4Material* Aluminum6061 =
-      new G4Material("Aluminum6061", density, 5);
+    //aluminum 6061
+  double density = 2.70*g/cm3;
+  G4Material* Aluminum6061 =
+    new G4Material("Aluminum6061", density, 5);
 
-    Aluminum6061->AddElement(elAl,98.01*perCent);
-    Aluminum6061->AddElement(elSi, 0.6 *perCent);
-    Aluminum6061->AddElement(elMg, 1.2 *perCent);
-    Aluminum6061->AddElement(elCu, 0.15*perCent);
-    Aluminum6061->AddElement(elCr, 0.04*perCent);
+  Aluminum6061->AddElement(elAl,98.01*perCent);
+  Aluminum6061->AddElement(elSi, 0.6 *perCent);
+  Aluminum6061->AddElement(elMg, 1.2 *perCent);
+  Aluminum6061->AddElement(elCu, 0.15*perCent);
+  Aluminum6061->AddElement(elCr, 0.04*perCent);
 
-
-
-		// FOIL 1
-		double foil1Thick = 0.136*mm;
-		double foil1Radius = 6.*mm;
-		double foil1PositionBottom = 62.7*mm;
-		auto material = G4Material::GetMaterial("G4_Ta");
-		auto fEfoil1_tubs = new G4Tubs("efoil1", 0.0*mm, foil1Radius, foil1Thick/2.,
-												0.*deg, 360.*deg);
-		G4LogicalVolume* fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, material,
-																		 "efoil1_LV", 0, 0, 0);
-
-		auto foil1_pos = g_SAD - foil1PositionBottom + foil1Thick/2.;
-
-		new G4PVPlacement(0,
-					G4ThreeVector(0., 0., foil1_pos - parent_z_world),
-					fEfoil1_LV, "electronFoil1", parent_logical, false, 0);
+  //brass
+  density = 8.53*g/cm3;
+  G4Material* Brass = new G4Material("Brass", density, 4);
+  Brass->AddElement(elZn,29.88*perCent);
+  Brass->AddElement(elPb, 0.07*perCent);
+  Brass->AddElement(elFe, 0.05*perCent);
+  Brass->AddElement(elCu,70.  *perCent);
 
 
-		// FOIL 2
-    auto foil2material = G4Material::GetMaterial("Aluminum6061");
-		double foil2Position = g_SAD - 135.526*mm;
-		const G4int foil2pts = 16;
-		G4double r_foil2[foil2pts] = {
-				 0.0 *mm,
-				 4.06*mm,  4.06*mm,  6.11*mm,  6.11*mm,
-				 8.15*mm,  8.15*mm, 10.17*mm, 10.17*mm,
-				19.5 *mm, 19.5 *mm, 25.  *mm, 25.  *mm,
-				80.  *mm, 80.  *mm,
-				 0.  *mm};
-		G4double z_foil2[foil2pts] = {
-				2.108 *mm,
-				2.108 *mm, 1.600*mm, 1.600*mm, 1.092 *mm,
-				1.092 *mm, 0.660*mm, 0.660*mm, 0.1655*mm,
-				0.1655*mm, 0.305*mm, 0.305*mm, 3.    *mm,
-				3.    *mm, 0.   *mm,
-				0.    *mm};
-		auto efoil2 = new G4GenericPolycone("foil2",
-							0.*deg, 360.*deg, foil2pts, r_foil2, z_foil2);
+  //G4String beamName = "9E";
 
-		auto fEfoil2_LV = new G4LogicalVolume(efoil2,
-			foil2material, "efoil2_LV", 0, 0, 0);
+  // FOIL 1
+  G4double foil1Radius = 6.*mm;
+  G4double foil1PositionBottom = 62.7*mm;
+  G4double foil1Thick = 0.23*mm;
+  auto material = G4Material::GetMaterial("Brass");
+  
+  if (energyMode == EnergyMode::E09) {
+    foil1Thick = 0.23*mm;
+  }
+  else if (energyMode == EnergyMode::E15) {
+    foil1Thick = 0.136*mm;
+    material = G4Material::GetMaterial("G4_Ta");
+  }
+  auto fEfoil1_tubs = new G4Tubs("efoil1", 0.0*mm, foil1Radius, foil1Thick/2.,
+                      0.*deg, 360.*deg);
+  G4LogicalVolume* fEfoil1_LV = new G4LogicalVolume(fEfoil1_tubs, material,
+                                   "efoil1_LV", 0, 0, 0);
 
-		auto fEfoil2 = new G4PVPlacement(0,
-					G4ThreeVector(0., 0., foil2Position - parent_z_world),
-					fEfoil2_LV, "electronFoil2", parent_logical, false, 0);
+  auto foil1_pos = g_SAD - foil1PositionBottom + foil1Thick/2.;
+
+  new G4PVPlacement(0,
+        G4ThreeVector(0., 0., foil1_pos - parent_z_world),
+        fEfoil1_LV, "electronFoil1", parent_logical, false, 0);
+
+
+  // FOIL 2
+  auto foil2material = G4Material::GetMaterial("Aluminum6061");
+  double foil2Position = g_SAD - 135.526*mm;
+  G4GenericPolycone* efoil2 = nullptr;
+  if (energyMode == EnergyMode::E09) {
+    const G4int foil2pts = 12;
+    G4double r_foil2[foil2pts] = {
+       0.0 *mm,
+       8.15*mm,  8.15*mm, 10.17*mm, 10.17*mm,
+      19.5 *mm, 19.5 *mm, 25.  *mm, 25.  *mm,
+      80.  *mm, 80.  *mm,
+       0.  *mm};
+    G4double z_foil2[foil2pts] = {
+       1.422*mm,
+       1.422*mm, 1.168*mm, 1.168*mm, 0.152*mm,
+       0.152*mm, 0.254*mm, 0.254*mm, 3.   *mm,
+       3.   *mm, 0.   *mm,
+       0.   *mm};
+    efoil2 = new G4GenericPolycone("foil2",
+              0.*deg, 360.*deg, foil2pts, r_foil2, z_foil2);
+  } 
+  else if (energyMode == EnergyMode::E15) {
+    const G4int foil2pts = 16;
+    G4double r_foil2[foil2pts] = {
+         0.0 *mm,
+         4.06*mm,  4.06*mm,  6.11*mm,  6.11*mm,
+         8.15*mm,  8.15*mm, 10.17*mm, 10.17*mm,
+        19.5 *mm, 19.5 *mm, 25.  *mm, 25.  *mm,
+        80.  *mm, 80.  *mm,
+         0.  *mm};
+    G4double z_foil2[foil2pts] = {
+        2.108 *mm,
+        2.108 *mm, 1.600*mm, 1.600*mm, 1.092 *mm,
+        1.092 *mm, 0.660*mm, 0.660*mm, 0.1655*mm,
+        0.1655*mm, 0.305*mm, 0.305*mm, 3.    *mm,
+        3.    *mm, 0.   *mm,
+        0.    *mm};
+    efoil2 = new G4GenericPolycone("foil2",
+              0.*deg, 360.*deg, foil2pts, r_foil2, z_foil2);
+  }
+
+  auto fEfoil2_LV = new G4LogicalVolume(efoil2,
+    foil2material, "efoil2_LV", 0, 0, 0);
+
+  auto fEfoil2 = new G4PVPlacement(0,
+        G4ThreeVector(0., 0., foil2Position - parent_z_world),
+        fEfoil2_LV, "electronFoil2", parent_logical, false, 0);
 
 }
 
@@ -2650,7 +2690,7 @@ G4VPhysicalVolume* TreatmentHeadDetector::Construct() {
 	}
   else if (build_electron) {
     buildSecondaryCollimator(collimator_logical, collimator_position_z, gantry_position_z, cad_path);
-    buildFoils(gantry_logical, gantry_position_z);
+    buildFoils(gantry_logical, gantry_position_z, m_energy_mode);
 		buildApplicator(collimator_logical, collimator_position_z);
   }
 	
