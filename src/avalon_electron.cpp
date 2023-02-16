@@ -1644,7 +1644,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   G4double pos_3 = 949.9*mm;
   G4double thick_3 = 13.9*mm;
   G4double rtop_3 = -1., rbot_3 = -1.;
-  G4double sc3_width = 60.*mm;  // x/y dimension of scraper
+  G4double sc3_width = 42.*mm;  // x/y dimension of scraper
   G4double r31 = -1., r32 = -1.;
 
   //scraper1
@@ -1752,7 +1752,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
 
   G4LogicalVolume* scraper3_LV =
       new G4LogicalVolume(scraper3poly,
-                          G4Material::GetMaterial("cerrotru"),
+                          G4Material::GetMaterial("ZincZA8"),
                           "scraper3", 0, 0, 0);
 
   // bottom is 50 mm from isocenter
