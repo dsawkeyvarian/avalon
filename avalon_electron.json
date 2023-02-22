@@ -6,13 +6,13 @@
 	"treatment_head": {
     "type": "avalon_electron",
     //"type": "avalon",
-		"energy_mode": "15E"
+		"energy_mode": "9E"
   },
 	"track_particles": true,
   "phase_space_recorders": [
      {
        "type": "plane",
-       "phsp_filename": "e15_a20_proximal_2.phsp",
+       "phsp_filename": "e09_a20_proximal_1.phsp",
        "center_position": [0.0, 0.0, 0.0, "cm"],
        "size": [100.0, 100.0, 0.01, "cm"],
        "kill_particles": false,
@@ -21,7 +21,7 @@
    ],
    "dose_grids": [
      {
-       "filename": "e15_a20_proximal_2.dose",
+       "filename": "e09_a20_proximal_1.dose",
        "center_position": [0.0, 0.0, -8.0, "cm"],
        "size": [60.0, 60.0, 16.0, "cm"],
        "num_voxels": [60, 60, 16]

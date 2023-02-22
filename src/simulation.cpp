@@ -146,7 +146,7 @@ protected:
 		data.mom_y = static_cast<float>(momentum_direction.y());
 		data.weight = weight;
 
-    if ((position.x()) > 160.*mm && position.x() < 190.*mm &&
+    if ((position.x()) > 250.*mm && position.x() < 300.*mm &&
          fabs(position.y()) < 50.*mm &&
          track->GetParticleDefinition() == G4Electron::Electron()) { // || fabs(position.y()) > 100.*mm) {
       //G4cout << "Keeping!" << G4endl;

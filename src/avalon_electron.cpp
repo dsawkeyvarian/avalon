@@ -1622,7 +1622,27 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   cerrotru->AddElement(elBi,58.*perCent);
   cerrotru->AddElement(elSn,42.*perCent);
 
+  // "horseshoe" adaptor to mount TrueBeam applicator on Avalon
+  G4Tubs* horse1 = new G4Tubs("horse1", 0. * mm, 239.*mm, 14.75*mm, 0.*deg, 360.*deg);
+  G4Box* horse2 =
+    new G4Box("horse2", 140.*mm, 200.*mm, 15.*mm);
 
+  G4SubtractionSolid* horse3 =
+    new G4SubtractionSolid("horse3", horse1, horse2, 0, G4ThreeVector(0., 60.*mm, 0.));
+
+  G4LogicalVolume* horseshoe_LV =
+    new G4LogicalVolume(horse3,
+                        G4Material::GetMaterial("Aluminum6061"),
+                        "horseshoe_LV", 0, 0, 0);
+
+  new G4PVPlacement(0, G4ThreeVector(0., 0., -91.*mm),
+                horseshoe_LV, "horseshoe", parent_logical, false, 0);
+
+  G4VisAttributes* horseshoe_VisAtt =
+    new G4VisAttributes(G4Colour(0.2, 0.3, 1.0, 0.9));
+  horseshoe_LV->SetVisAttributes(horseshoe_VisAtt);
+
+  // scrapers
   G4double delta = 1.*mm;
   // for scraper 1
   G4double pos_1 = 653.7*mm;
@@ -1654,7 +1674,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
   r13     = rtop_1 + 40.*mm;
   t11     = thick_1/2. - 2.*mm;
   rbot_1  = 163.5*mm/2.*std::sqrt(2.);
-  al_width = 30.*mm;
+  al_width = 58.*mm;
 
   //scraper2
   rtop_2   = 172.1*mm/2.*std::sqrt(2.);
@@ -1693,10 +1713,10 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                           G4Material::GetMaterial("ZincZA8"),
                           "scraper1", 0, 0, 0);
 
- // 0 is 682 mm from isocenter minus 245 equals 437
+ // 0 is 682 mm (gantry) from isocenter minus 245 (coll position) equals 437
+ // so here, z=0 is 437 mm from isocenter
  // bottom of scraper is 346 mm from iso
- //new G4PVPlacement(0, G4ThreeVector(0., 0., -336.*mm),
- new G4PVPlacement(0, G4ThreeVector(0., 0., -101.*mm),
+ new G4PVPlacement(0, G4ThreeVector(0., 0., -91.*mm),
       scraper1_LV, "scraper1", parent_logical, false, 0);
 
   // Al support for scraper 1
@@ -1718,7 +1738,7 @@ void buildApplicator(G4LogicalVolume* parent_logical, double parent_z_world)
                         G4Material::GetMaterial("Aluminum6061"),
                         "scraper1_support", 0, 0, 0);
 
-  new G4PVPlacement(0, G4ThreeVector(0., 0., + t11/2. - 101.*mm),
+  new G4PVPlacement(0, G4ThreeVector(0., 0., + t11/2. - 91.*mm),
                 scraper1Support_LV, "scraper1_support", parent_logical, false, 0);
 
   //scraper 2
@@ -2605,6 +2625,7 @@ VolumeNameAndTraversalFlag AvalonTable[] = {
     {"ff_10X", TraversedGeometry::FLATTENING_FILTER},
     {"efoil1_LV", TraversedGeometry::EFOIL1},
     {"efoil2_LV", TraversedGeometry::EFOIL2},
+    {"horseshoe_LV", TraversedGeometry::SCRAPER1_SUPPORT},
     {"scraper1", TraversedGeometry::SCRAPER1},
     {"scraper1_support", TraversedGeometry::SCRAPER1_SUPPORT},
     {"scraper2", TraversedGeometry::SCRAPER2},
